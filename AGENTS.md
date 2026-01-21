@@ -40,6 +40,70 @@ uv run ruff check
 nix fmt
 ```
 
+## Development on macOS
+
+### Network Permissions for Local Discovery
+
+When running exo from source on macOS (`uv run exo`), the Python process lacks the necessary network permissions for mDNS/Bonjour peer discovery. This causes nodes to not discover each other on the local network.
+
+**Solution: Use ExoDev.app**
+
+The repository includes `ExoDev.app`, a lightweight launcher that wraps `uv run exo` with proper macOS Info.plist declarations:
+
+```bash
+# First run - triggers macOS permission dialog
+open ExoDev.app --args -v
+
+# Grant Local Network permission when prompted
+
+# Subsequent runs with arguments
+open ExoDev.app --args -v --force-master --api-port 8080
+```
+
+**Optional: Create a shell alias**
+
+```bash
+./setup-exo-dev-alias.sh
+source ~/.zshrc  # or ~/.bashrc
+
+# Then use simply:
+exo-dev -v
+exo-dev --force-master
+```
+
+**Why this is needed:**
+- macOS requires apps to declare `NSLocalNetworkUsageDescription` and `NSBonjourServices` in Info.plist to use mDNS
+- Running Python directly (`uv run exo`) bypasses these declarations
+- macOS silently blocks mDNS packets at the kernel level without them
+- ExoDev.app provides the proper declarations while always running from your latest source code
+
+See `ExoDev.app/README.md` for more details.
+
+## Known Issues & Troubleshooting
+
+### Models Stuck in LOADING State
+
+**Issue:** Models can get stuck in LOADING state during initialization, holding RAM indefinitely and requiring system reboot to free memory (particularly on macOS).
+
+**Root cause:** When `load_mlx_items()` times out or hangs, the runner process stays blocked at the loading call, never receiving the `Shutdown` task to clean up.
+
+**Fix (implemented):** The `on_model_load_timeout` callback now calls `sys.exit(1)` to terminate the runner process, which:
+- Frees all allocated memory immediately
+- Triggers RunnerSupervisor cleanup
+- Allows a new runner to be created
+- No reboot required
+
+**Location:** `src/exo/worker/runner/runner.py:125-137`
+
+**To observe timeout behavior:**
+```bash
+# Set shorter timeout for testing (default: 60s + model_size/5)
+export EXO_MODEL_LOAD_TIMEOUT=10
+uv run exo -v
+```
+
+The timeout mechanism uses `eval_with_timeout()` from `src/exo/worker/engines/mlx/auto_parallel.py` which monitors model parameter evaluation during loading.
+
 ## Pre-Commit Checks (REQUIRED)
 
 **IMPORTANT: Always run these checks before committing code. CI will fail if these don't pass.**
