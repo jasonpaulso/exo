@@ -1,3 +1,4 @@
+import sys
 import time
 from collections.abc import Generator
 from functools import cache
@@ -132,6 +133,9 @@ def main(
                             )
                         )
                         time.sleep(0.5)
+                        # Exit the runner process to free memory immediately
+                        logger.error("Model loading timed out - exiting runner process")
+                        sys.exit(1)
 
                     model, tokenizer = load_mlx_items(
                         bound_instance, group, on_timeout=on_model_load_timeout
