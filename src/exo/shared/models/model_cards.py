@@ -314,6 +314,14 @@ MODEL_CARDS: dict[str, ModelCard] = {
         tasks=[ModelTask.TextGeneration],
     ),
     # gpt-oss
+    "gpt-oss-120b-MLX-8bit": ModelCard(
+        model_id=ModelId("lmstudio-community/gpt-oss-120b-MLX-8bit"),
+        storage_size=Memory.from_kb(124_000_000),
+        n_layers=36,
+        hidden_size=2880,
+        supports_tensor=True,
+        tasks=[ModelTask.TextGeneration],
+    ),
     "gpt-oss-120b-MXFP4-Q8": ModelCard(
         model_id=ModelId("mlx-community/gpt-oss-120b-MXFP4-Q8"),
         storage_size=Memory.from_kb(68_996_301),
