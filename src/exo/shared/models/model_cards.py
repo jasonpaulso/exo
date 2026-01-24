@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import Annotated
+from typing import Annotated, Optional
 
 import aiofiles
 import aiofiles.os as aios
@@ -39,6 +39,7 @@ class ModelCard(CamelCaseModel):
     hidden_size: PositiveInt
     supports_tensor: bool
     tasks: list[ModelTask]
+    adapter_path: Optional[str] = ""
     components: list[ComponentInfo] | None = None
 
     @field_validator("tasks", mode="before")
@@ -73,7 +74,7 @@ class ModelCard(CamelCaseModel):
         config_data = await get_config_data(model_id)
         num_layers = config_data.layer_count
         mem_size_bytes = await get_safetensors_size(model_id)
-
+        adapter_path = config_data.adapter_path 
         mc = ModelCard(
             model_id=ModelId(model_id),
             storage_size=mem_size_bytes,
@@ -81,6 +82,7 @@ class ModelCard(CamelCaseModel):
             hidden_size=config_data.hidden_size or 0,
             supports_tensor=config_data.supports_tensor,
             tasks=[ModelTask.TextGeneration],
+            adapter_path=adapter_path
         )
         _card_cache[model_id] = mc
         return mc
@@ -202,6 +204,16 @@ MODEL_CARDS: dict[str, ModelCard] = {
         n_layers=80,
         hidden_size=8192,
         supports_tensor=True,
+        tasks=[ModelTask.TextGeneration],
+    ),
+    # qwen2.5
+    "Qwen2.5-Coder-0.5B-Instruct-4bit": ModelCard(
+        model_id=ModelId("mlx-community/Qwen2.5-Coder-0.5B-Instruct-4bit"),
+        storage_size=Memory.from_mb(278),
+        adapter_path="salakash/AskBuddyX",
+        n_layers=28,
+        hidden_size=1024,
+        supports_tensor=False,
         tasks=[ModelTask.TextGeneration],
     ),
     # qwen3
@@ -364,6 +376,15 @@ MODEL_CARDS: dict[str, ModelCard] = {
     # glm 4.7 flash
     "glm-4.7-flash-4bit": ModelCard(
         model_id=ModelId("mlx-community/GLM-4.7-Flash-4bit"),
+        storage_size=Memory.from_gb(18),
+        n_layers=47,
+        hidden_size=2048,
+        supports_tensor=True,
+        tasks=[ModelTask.TextGeneration],
+    ),
+    # huihui-ai/Huihui-GLM-4.7-Flash-abliterated-mlx-4bit
+     "huihui-GLM-4.7-Flash-abliterated-mlx-4bit": ModelCard(
+        model_id=ModelId("huihui-ai/Huihui-GLM-4.7-Flash-abliterated-mlx-4bit"),
         storage_size=Memory.from_gb(18),
         n_layers=47,
         hidden_size=2048,
@@ -626,7 +647,7 @@ class ConfigData(BaseModel):
     decoder_layers: Annotated[int, Field(ge=0)] | None = None  # Some architectures
     hidden_size: Annotated[int, Field(ge=0)] | None = None
     architectures: list[str] | None = None
-
+    adapter_path: Optional[str] = ""
     @property
     def supports_tensor(self) -> bool:
         return self.architectures in [
