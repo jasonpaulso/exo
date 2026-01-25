@@ -159,6 +159,13 @@
 			background-color: oklch(0.95 0 0 / 0.8) !important;
 		}
 
+		/* Override bg-exo-medium-gray opacity patterns for light mode */
+		& .bg-exo-medium-gray\/50,
+		& .bg-exo-medium-gray\/30,
+		& .bg-exo-medium-gray\/20 {
+			background-color: oklch(0.92 0 0 / 0.8) !important;
+		}
+
 		/* Ensure borders are visible in light mode */
 		& .border-exo-yellow\/10,
 		& .border-exo-yellow\/20,
@@ -180,6 +187,24 @@
 
 		& .hover\:bg-white\/10:hover {
 			background-color: oklch(0.3 0 0 / 0.1) !important;
+		}
+
+		/* Soften dark shadows in light mode */
+		& .shadow-black\/50 {
+			--tw-shadow-color: oklch(0 0 0 / 0.15) !important;
+		}
+
+		/* Fix placeholder text colors in light mode */
+		& .placeholder\:text-white\/40::placeholder {
+			color: oklch(0.4 0 0 / 0.7) !important;
+		}
+		& .placeholder\:text-white\/50::placeholder {
+			color: oklch(0.35 0 0 / 0.75) !important;
+		}
+
+		/* Override bg-exo-dark-gray for light mode (fixed dropdown panels) */
+		& .bg-exo-dark-gray {
+			background-color: oklch(0.98 0 0) !important;
 		}
 	}
 }
@@ -212,8 +237,8 @@
 		}
 	}
 
-	/* Command panel styling */
-	.command-panel {
+	/* Command panel styling - dark mode (default in .dark) */
+	.dark .command-panel {
 		background: linear-gradient(
 			180deg,
 			oklch(0.16 0 0 / 0.95) 0%,
@@ -223,6 +248,19 @@
 		box-shadow:
 			inset 0 1px 0 oklch(1 0 0 / 0.03),
 			0 4px 20px oklch(0 0 0 / 0.5);
+	}
+
+	/* Command panel styling - light mode */
+	.command-panel {
+		background: linear-gradient(
+			180deg,
+			oklch(0.98 0 0 / 0.95) 0%,
+			oklch(0.95 0 0 / 0.98) 100%
+		);
+		border: 1px solid oklch(0.65 0.18 85 / 0.3);
+		box-shadow:
+			inset 0 1px 0 oklch(1 0 0 / 0.5),
+			0 4px 20px oklch(0 0 0 / 0.1);
 	}
 
 	/* Glow text */
