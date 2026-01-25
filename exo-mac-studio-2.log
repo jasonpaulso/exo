@@ -1,0 +1,293 @@
+warning: `VIRTUAL_ENV=/Users/jasonschulz/Developer-local/Tools/exo-iterations/exo/.venv` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead
+[ 12:09:26.404 | [1mINFO    [0m | exo.main:main:259 ] [1mStarting EXO[0m
+[ 12:09:26.404 | [1mINFO    [0m | exo.main:main:260 ] [1mEXO_LIBP2P_NAMESPACE: None[0m
+[ 12:09:26.407 | [34m[1mDEBUG   [0m | logging:handle:1681 ] [34m[1mUsing selector: KqueueSelector[0m
+[ 12:09:26.408 | [34m[1mDEBUG   [0m | logging:handle:1681 ] [34m[1mAttempting to acquire lock 4483293472 on /Users/jasonschulz/.exo/node_id.keypair.lock[0m
+[ 12:09:26.408 | [34m[1mDEBUG   [0m | logging:handle:1681 ] [34m[1mLock 4483293472 acquired on /Users/jasonschulz/.exo/node_id.keypair.lock[0m
+[ 12:09:26.408 | [34m[1mDEBUG   [0m | logging:handle:1681 ] [34m[1mAttempting to release lock 4483293472 on /Users/jasonschulz/.exo/node_id.keypair.lock[0m
+[ 12:09:26.408 | [34m[1mDEBUG   [0m | logging:handle:1681 ] [34m[1mLock 4483293472 released on /Users/jasonschulz/.exo/node_id.keypair.lock[0m
+[ 12:09:26.410 | [1mINFO    [0m | exo.routing.router:_networking_subscribe:169 ] [1mSubscribing to global_events[0m
+[ 12:09:26.410 | [1mINFO    [0m | exo.routing.router:_networking_subscribe:169 ] [1mSubscribing to local_events[0m
+[ 12:09:26.411 | [1mINFO    [0m | exo.routing.router:_networking_subscribe:169 ] [1mSubscribing to commands[0m
+[ 12:09:26.411 | [1mINFO    [0m | exo.routing.router:_networking_subscribe:169 ] [1mSubscribing to election_messages[0m
+[ 12:09:26.411 | [1mINFO    [0m | exo.routing.router:_networking_subscribe:169 ] [1mSubscribing to connection_messages[0m
+[ 12:09:26.411 | [1mINFO    [0m | exo.routing.router:_networking_subscribe:169 ] [1mSubscribing to download_commands[0m
+[ 12:09:26.411 | [1mINFO    [0m | exo.main:create:58 ] [1mStarting node 12D3KooWPHFUBTjATb5xBcq38GSwj9cN9La75AeW9vhiqDJycZqa[0m
+[ 12:09:26.435 | [34m[1mDEBUG   [0m | logging:handle:1681 ] [34m[1mUsing selector: KqueueSelector[0m
+[ 12:09:26.435 | [34m[1mDEBUG   [0m | exo.routing.router:run:148 ] [34m[1mStarting Router[0m
+[ 12:09:26.435 | [1mINFO    [0m | exo.shared.election:run:88 ] [1mStarting Election[0m
+[ 12:09:26.435 | [34m[1mDEBUG   [0m | exo.shared.election:run:97 ] [34m[1mStarting initial campaign[0m
+[ 12:09:26.435 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:215 ] [34m[1mElection 0 started[0m
+[ 12:09:26.435 | [1mINFO    [0m | exo.download.coordinator:run:62 ] [1mStarting DownloadCoordinator[0m
+[ 12:09:26.435 | [1mINFO    [0m | exo.worker.main:run:99 ] [1mStarting Worker[0m
+[ 12:09:26.435 | [1mINFO    [0m | exo.master.main:run:91 ] [1mStarting Master[0m
+[ 12:09:26.435 | [1mINFO    [0m | exo.master.api:run:1248 ] [1mStarting API[0m
+[ 12:09:26.436 | [34m[1mDEBUG   [0m | exo.routing.router:run:51 ] [34m[1mTopic Router TypedTopic(topic='global_events', publish_policy=<PublishPolicy.Always: 'Always'>, model_type=<class 'exo.shared.types.events.ForwarderEvent'>) ready to send[0m
+[ 12:09:26.436 | [34m[1mDEBUG   [0m | exo.routing.router:run:51 ] [34m[1mTopic Router TypedTopic(topic='local_events', publish_policy=<PublishPolicy.Always: 'Always'>, model_type=<class 'exo.shared.types.events.ForwarderEvent'>) ready to send[0m
+[ 12:09:26.436 | [34m[1mDEBUG   [0m | exo.routing.router:run:51 ] [34m[1mTopic Router TypedTopic(topic='commands', publish_policy=<PublishPolicy.Always: 'Always'>, model_type=<class 'exo.shared.types.commands.ForwarderCommand'>) ready to send[0m
+[ 12:09:26.436 | [34m[1mDEBUG   [0m | exo.routing.router:run:51 ] [34m[1mTopic Router TypedTopic(topic='election_messages', publish_policy=<PublishPolicy.Always: 'Always'>, model_type=<class 'exo.shared.election.ElectionMessage'>) ready to send[0m
+[ 12:09:26.436 | [34m[1mDEBUG   [0m | exo.routing.router:run:51 ] [34m[1mTopic Router TypedTopic(topic='connection_messages', publish_policy=<PublishPolicy.Never: 'Never'>, model_type=<class 'exo.routing.connection_message.ConnectionMessage'>) ready to send[0m
+[ 12:09:26.436 | [34m[1mDEBUG   [0m | exo.routing.router:run:51 ] [34m[1mTopic Router TypedTopic(topic='download_commands', publish_policy=<PublishPolicy.Always: 'Always'>, model_type=<class 'exo.shared.types.commands.ForwarderDownloadCommand'>) ready to send[0m
+[ 12:09:26.436 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:221 ] [34m[1mSleeping for 0.0 seconds[0m
+[ 12:09:26.436 | [1mINFO    [0m | exo.download.coordinator:_emit_existing_download_progress:244 ] [1mDownloadCoordinator: Fetching and emitting existing download progress...[0m
+[ 12:09:26.446 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:225 ] [34m[1mWoke up from sleep[0m
+[ 12:09:26.459 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:231 ] [34m[1mElection queue [ElectionMessage(clock=0, seniority=0, proposed_session=SessionId(master_node_id='12D3KooWPHFUBTjATb5xBcq38GSwj9cN9La75AeW9vhiqDJycZqa', election_clock=0), commands_seen=0)][0m
+[ 12:09:26.459 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:232 ] [34m[1mElected: clock=0 seniority=0 proposed_session=SessionId(master_node_id='12D3KooWPHFUBTjATb5xBcq38GSwj9cN9La75AeW9vhiqDJycZqa', election_clock=0) commands_seen=0[0m
+[ 12:09:26.459 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:237 ] [34m[1mNode is a candidate and seniority is 0[0m
+[ 12:09:26.459 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:241 ] [34m[1mNew seniority: 1[0m
+[ 12:09:26.459 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:246 ] [34m[1mElection finished, new SessionId(master_node_id='12D3KooWPHFUBTjATb5xBcq38GSwj9cN9La75AeW9vhiqDJycZqa' election_clock=0) with queue [ElectionMessage(clock=0, seniority=0, proposed_session=SessionId(master_node_id='12D3KooWPHFUBTjATb5xBcq38GSwj9cN9La75AeW9vhiqDJycZqa', election_clock=0), commands_seen=0)][0m
+[ 12:09:26.459 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:249 ] [34m[1mSending election result[0m
+[ 12:09:26.459 | [34m[1mDEBUG   [0m | exo.shared.election:elect:113 ] [34m[1mElecting: clock=0 seniority=0 proposed_session=SessionId(master_node_id='12D3KooWPHFUBTjATb5xBcq38GSwj9cN9La75AeW9vhiqDJycZqa', election_clock=0) commands_seen=0[0m
+[ 12:09:26.459 | [34m[1mDEBUG   [0m | exo.shared.election:elect:116 ] [34m[1mCurrent session: master_node_id='12D3KooWPHFUBTjATb5xBcq38GSwj9cN9La75AeW9vhiqDJycZqa' election_clock=0[0m
+[ 12:09:26.462 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:251 ] [34m[1mElection result sent[0m
+[ 12:09:26.463 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:255 ] [34m[1mElection 0 finally[0m
+[ 12:09:26.463 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:258 ] [34m[1mSetting done event[0m
+[ 12:09:26.463 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:260 ] [34m[1mDone event set[0m
+[ 12:09:26.463 | [34m[1mDEBUG   [0m | exo.shared.election:run:100 ] [34m[1mInitial campaign finished[0m
+[ 12:09:26.463 | [1mINFO    [0m | logging:handle:1681 ] [1mRunning on http://0.0.0.0:52415 (CTRL + C to quit)[0m
+[ 12:09:26.463 | [1mINFO    [0m | logging:handle:1681 ] [1mRunning on http://0.0.0.0:52415 (CTRL + C to quit)[0m
+[ 12:09:26.464 | [34m[1mDEBUG   [0m | exo.shared.election:_election_receiver:136 ] [34m[1mElection message received: clock=0 seniority=0 proposed_session=SessionId(master_node_id='12D3KooWPHFUBTjATb5xBcq38GSwj9cN9La75AeW9vhiqDJycZqa', election_clock=0) commands_seen=0[0m
+[ 12:09:26.464 | [34m[1mDEBUG   [0m | exo.shared.election:_election_receiver:138 ] [34m[1mDropping message from ourselves[0m
+[ 12:09:26.464 | [1mINFO    [0m | exo.main:_elect_loop:180 ] [1mNode elected Master[0m
+[ 12:09:26.464 | [1mINFO    [0m | exo.master.api:unpause:218 ] [1mUnpausing API[0m
+[ 12:09:26.472 | [34m[1mDEBUG   [0m | exo.shared.election:_election_receiver:136 ] [34m[1mElection message received: clock=0 seniority=0 proposed_session=SessionId(master_node_id='12D3KooWPHFUBTjATb5xBcq38GSwj9cN9La75AeW9vhiqDJycZqa', election_clock=0) commands_seen=0[0m
+[ 12:09:26.472 | [34m[1mDEBUG   [0m | exo.shared.election:_election_receiver:138 ] [34m[1mDropping message from ourselves[0m
+[ 12:09:26.498 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 0: NodeGatheredInfo(event_id='89e15647-196e-45b5-b777-f75f6a65238f' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:26.516 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 1: NodeGatheredInfo(event_id='323d7683-727d-43ff-9985-1bf08eda4d57' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:26.517 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='89e15647-196e-45b5-b777-f75f6a65238f' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:26.520 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 2: NodeGatheredInfo(event_id='96eae17e-6740-470b-bbe7-ff4d755ddf88' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:26.521 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='323d7683-727d-43ff-9985-1bf08eda4d57' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:26.524 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='96eae17e-6740-470b-bbe7-ff4d755ddf88' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:26.570 | [31m[1mERROR   [0m | exo.download.impl_shard_downloader:get_shard_download_status:171 ] [31m[1mError downloading shard:[0m
+[ 12:09:26.575 | [31m[1mERROR   [0m | exo.download.impl_shard_downloader:get_shard_download_status:171 ] [31m[1mError downloading shard:[0m
+[ 12:09:26.581 | [31m[1mERROR   [0m | exo.download.impl_shard_downloader:get_shard_download_status:171 ] [31m[1mError downloading shard:[0m
+[ 12:09:26.595 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 3: NodeGatheredInfo(event_id='4441a8b3-0e41-48f0-9db3-e5b5744d25f1' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:26.599 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='4441a8b3-0e41-48f0-9db3-e5b5744d25f1' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:26.600 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 4: NodeDownloadProgress(event_id='990c0adb-6d61-49a0-b9a2-bd0a91611e54' download_progress=DownloadPendi[0m
+[ 12:09:26.601 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 5: NodeGatheredInfo(event_id='63684e75-9fa5-4925-bde2-46bebb1e7ec3' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:26.602 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 6: NodeDownloadProgress(event_id='3ce3d101-beaa-401a-881b-5d0c93a3c038' download_progress=DownloadPendi[0m
+[ 12:09:26.602 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='990c0adb-6d61-49a0-b9a2-bd0a91611e54' download_progress=DownloadPendi[0m
+[ 12:09:26.603 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 7: NodeGatheredInfo(event_id='57a7ba1c-5bb4-434d-9a33-637eb14e2686' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:26.605 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 8: NodeGatheredInfo(event_id='54934e46-c55c-4ea2-8f08-01cd532be2e6' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:26.605 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='63684e75-9fa5-4925-bde2-46bebb1e7ec3' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:26.606 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 9: NodeDownloadProgress(event_id='26d5a487-c23b-48d2-b9b7-a99ec0184def' download_progress=DownloadPendi[0m
+[ 12:09:26.606 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='3ce3d101-beaa-401a-881b-5d0c93a3c038' download_progress=DownloadPendi[0m
+[ 12:09:26.608 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='57a7ba1c-5bb4-434d-9a33-637eb14e2686' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:26.611 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 10: NodeDownloadProgress(event_id='ec7772b5-1522-48ab-bdd8-6c1ea6584cf8' download_progress=DownloadPendi[0m
+[ 12:09:26.611 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='54934e46-c55c-4ea2-8f08-01cd532be2e6' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:26.613 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='26d5a487-c23b-48d2-b9b7-a99ec0184def' download_progress=DownloadPendi[0m
+[ 12:09:26.615 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='ec7772b5-1522-48ab-bdd8-6c1ea6584cf8' download_progress=DownloadPendi[0m
+[ 12:09:26.616 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 11: NodeDownloadProgress(event_id='3fec65af-9af0-4bd1-b3a0-e518fd0f570f' download_progress=DownloadPendi[0m
+[ 12:09:26.616 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 12: NodeDownloadProgress(event_id='0e362b82-ce28-4f35-af73-83461f71341a' download_progress=DownloadPendi[0m
+[ 12:09:26.617 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 13: NodeDownloadProgress(event_id='5134e333-2dff-4db7-b6a1-635b140ae547' download_progress=DownloadPendi[0m
+[ 12:09:26.617 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='3fec65af-9af0-4bd1-b3a0-e518fd0f570f' download_progress=DownloadPendi[0m
+[ 12:09:26.618 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 14: NodeDownloadProgress(event_id='4535fbc2-8bd5-4010-bf40-6141f705af27' download_progress=DownloadPendi[0m
+[ 12:09:26.618 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='0e362b82-ce28-4f35-af73-83461f71341a' download_progress=DownloadPendi[0m
+[ 12:09:26.618 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 15: NodeDownloadProgress(event_id='746e1434-fd1f-4c7c-b2d1-bf56f0a33833' download_progress=DownloadPendi[0m
+[ 12:09:26.620 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='5134e333-2dff-4db7-b6a1-635b140ae547' download_progress=DownloadPendi[0m
+[ 12:09:26.620 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 16: NodeDownloadProgress(event_id='c204ff90-9e9b-4a27-9702-e3bae4f7d363' download_progress=DownloadCompl[0m
+[ 12:09:26.620 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='4535fbc2-8bd5-4010-bf40-6141f705af27' download_progress=DownloadPendi[0m
+[ 12:09:26.622 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='746e1434-fd1f-4c7c-b2d1-bf56f0a33833' download_progress=DownloadPendi[0m
+[ 12:09:26.623 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='c204ff90-9e9b-4a27-9702-e3bae4f7d363' download_progress=DownloadCompl[0m
+[ 12:09:26.627 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 17: NodeDownloadProgress(event_id='ac392f20-e79d-44ed-8a3b-b02bdb91bb39' download_progress=DownloadPendi[0m
+[ 12:09:26.628 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 18: NodeDownloadProgress(event_id='6f1bf759-9cfa-4df1-bf20-c7528b562ce2' download_progress=DownloadPendi[0m
+[ 12:09:26.628 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 19: NodeDownloadProgress(event_id='299bd21e-4a39-4712-b80c-daf676c0f0e7' download_progress=DownloadPendi[0m
+[ 12:09:26.629 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='ac392f20-e79d-44ed-8a3b-b02bdb91bb39' download_progress=DownloadPendi[0m
+[ 12:09:26.630 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 20: NodeDownloadProgress(event_id='69a76644-1c0d-4c0e-9b69-2eb770dc6cd0' download_progress=DownloadCompl[0m
+[ 12:09:26.630 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='6f1bf759-9cfa-4df1-bf20-c7528b562ce2' download_progress=DownloadPendi[0m
+[ 12:09:26.631 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 21: NodeDownloadProgress(event_id='37b016c8-ac7d-4269-bfd7-c878f05081d8' download_progress=DownloadPendi[0m
+[ 12:09:26.631 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='299bd21e-4a39-4712-b80c-daf676c0f0e7' download_progress=DownloadPendi[0m
+[ 12:09:26.632 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 22: NodeDownloadProgress(event_id='5a24aab4-d55d-45ac-897a-fa6cff70901d' download_progress=DownloadPendi[0m
+[ 12:09:26.632 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 23: NodeDownloadProgress(event_id='04de20d1-2fd7-4b6e-9d43-1fb6b95c1996' download_progress=DownloadPendi[0m
+[ 12:09:26.633 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='69a76644-1c0d-4c0e-9b69-2eb770dc6cd0' download_progress=DownloadCompl[0m
+[ 12:09:26.633 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 24: NodeDownloadProgress(event_id='d9018cf6-d571-40fa-b927-4ae88c1a92bc' download_progress=DownloadCompl[0m
+[ 12:09:26.634 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='37b016c8-ac7d-4269-bfd7-c878f05081d8' download_progress=DownloadPendi[0m
+[ 12:09:26.635 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='5a24aab4-d55d-45ac-897a-fa6cff70901d' download_progress=DownloadPendi[0m
+[ 12:09:26.635 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 25: NodeDownloadProgress(event_id='db0ea27f-f33f-46dd-b36b-c991cbca973d' download_progress=DownloadCompl[0m
+[ 12:09:26.635 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='04de20d1-2fd7-4b6e-9d43-1fb6b95c1996' download_progress=DownloadPendi[0m
+[ 12:09:26.636 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='d9018cf6-d571-40fa-b927-4ae88c1a92bc' download_progress=DownloadCompl[0m
+[ 12:09:26.638 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='db0ea27f-f33f-46dd-b36b-c991cbca973d' download_progress=DownloadCompl[0m
+[ 12:09:26.645 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 26: NodeDownloadProgress(event_id='b8826e94-1dbf-4403-807d-3593b8cea58a' download_progress=DownloadPendi[0m
+[ 12:09:26.647 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='b8826e94-1dbf-4403-807d-3593b8cea58a' download_progress=DownloadPendi[0m
+[ 12:09:26.648 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 27: NodeDownloadProgress(event_id='7434da7f-d9ce-4b85-bf7d-a09a7a6880b5' download_progress=DownloadCompl[0m
+[ 12:09:26.648 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 28: NodeDownloadProgress(event_id='3868c628-cf14-474f-89f4-26b1e3465645' download_progress=DownloadPendi[0m
+[ 12:09:26.648 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='7434da7f-d9ce-4b85-bf7d-a09a7a6880b5' download_progress=DownloadCompl[0m
+[ 12:09:26.650 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='3868c628-cf14-474f-89f4-26b1e3465645' download_progress=DownloadPendi[0m
+[ 12:09:26.651 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 29: NodeDownloadProgress(event_id='792913a5-726d-4ee1-8d88-1fb0ce77f492' download_progress=DownloadPendi[0m
+[ 12:09:26.652 | [31m[1mERROR   [0m | exo.download.impl_shard_downloader:get_shard_download_status:171 ] [31m[1mError downloading shard:[0m
+[ 12:09:26.653 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='792913a5-726d-4ee1-8d88-1fb0ce77f492' download_progress=DownloadPendi[0m
+[ 12:09:26.654 | [31m[1mERROR   [0m | exo.download.impl_shard_downloader:get_shard_download_status:171 ] [31m[1mError downloading shard:[0m
+[ 12:09:26.657 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 30: NodeDownloadProgress(event_id='a4919135-4f9c-47f5-be5e-80cd924a6b39' download_progress=DownloadPendi[0m
+[ 12:09:26.658 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='a4919135-4f9c-47f5-be5e-80cd924a6b39' download_progress=DownloadPendi[0m
+[ 12:09:26.665 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 31: NodeDownloadProgress(event_id='12f2b3e6-f6b9-4a61-a36c-eb9cd3b5d8b5' download_progress=DownloadPendi[0m
+[ 12:09:26.666 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 32: NodeDownloadProgress(event_id='912174db-ceb7-4ad9-bb23-94084cfbb92d' download_progress=DownloadCompl[0m
+[ 12:09:26.666 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='12f2b3e6-f6b9-4a61-a36c-eb9cd3b5d8b5' download_progress=DownloadPendi[0m
+[ 12:09:26.667 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='912174db-ceb7-4ad9-bb23-94084cfbb92d' download_progress=DownloadCompl[0m
+[ 12:09:26.670 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 33: NodeDownloadProgress(event_id='d80d8605-190b-408f-8fa0-281dbfe25c90' download_progress=DownloadCompl[0m
+[ 12:09:26.671 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='d80d8605-190b-408f-8fa0-281dbfe25c90' download_progress=DownloadCompl[0m
+[ 12:09:26.675 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 34: NodeDownloadProgress(event_id='450b343f-faaf-4e96-8ab7-b2c7605a551b' download_progress=DownloadPendi[0m
+[ 12:09:26.675 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 35: NodeDownloadProgress(event_id='ebc29ec1-ba68-4db8-b87a-813b49c4adb5' download_progress=DownloadCompl[0m
+[ 12:09:26.676 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='450b343f-faaf-4e96-8ab7-b2c7605a551b' download_progress=DownloadPendi[0m
+[ 12:09:26.676 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='ebc29ec1-ba68-4db8-b87a-813b49c4adb5' download_progress=DownloadCompl[0m
+[ 12:09:26.684 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 36: NodeDownloadProgress(event_id='c298900f-aa4c-4a5f-ba43-92a8af596e77' download_progress=DownloadPendi[0m
+[ 12:09:26.685 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='c298900f-aa4c-4a5f-ba43-92a8af596e77' download_progress=DownloadPendi[0m
+[ 12:09:26.691 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 37: NodeDownloadProgress(event_id='92a6f16b-c063-419e-bac0-dcf197c126bc' download_progress=DownloadPendi[0m
+[ 12:09:26.692 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='92a6f16b-c063-419e-bac0-dcf197c126bc' download_progress=DownloadPendi[0m
+[ 12:09:26.696 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 38: NodeDownloadProgress(event_id='1958f12f-c316-4a6b-89db-4980233c9dec' download_progress=DownloadPendi[0m
+[ 12:09:26.697 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='1958f12f-c316-4a6b-89db-4980233c9dec' download_progress=DownloadPendi[0m
+[ 12:09:26.700 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 39: NodeDownloadProgress(event_id='1d06838f-1181-4c0d-b74f-b53c3566eb19' download_progress=DownloadPendi[0m
+[ 12:09:26.700 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='1d06838f-1181-4c0d-b74f-b53c3566eb19' download_progress=DownloadPendi[0m
+[ 12:09:26.704 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 40: NodeDownloadProgress(event_id='8f63cdc1-fdd5-40b5-a505-ff33f3a835a3' download_progress=DownloadPendi[0m
+[ 12:09:26.705 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='8f63cdc1-fdd5-40b5-a505-ff33f3a835a3' download_progress=DownloadPendi[0m
+[ 12:09:26.710 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 41: NodeDownloadProgress(event_id='56b38076-2042-4859-85ca-bc965fa4ee32' download_progress=DownloadPendi[0m
+[ 12:09:26.710 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='56b38076-2042-4859-85ca-bc965fa4ee32' download_progress=DownloadPendi[0m
+[ 12:09:26.720 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 42: NodeDownloadProgress(event_id='4640fec3-8d6f-450e-9aff-9bac24b375c0' download_progress=DownloadPendi[0m
+[ 12:09:26.721 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='4640fec3-8d6f-450e-9aff-9bac24b375c0' download_progress=DownloadPendi[0m
+[ 12:09:26.722 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 43: NodeDownloadProgress(event_id='012e5516-3ec5-48e3-a16f-41adce2fc00c' download_progress=DownloadPendi[0m
+[ 12:09:26.723 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='012e5516-3ec5-48e3-a16f-41adce2fc00c' download_progress=DownloadPendi[0m
+[ 12:09:26.736 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 44: NodeDownloadProgress(event_id='897a3860-b615-459d-85e2-63503b07a526' download_progress=DownloadPendi[0m
+[ 12:09:26.736 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='897a3860-b615-459d-85e2-63503b07a526' download_progress=DownloadPendi[0m
+[ 12:09:26.747 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 45: NodeDownloadProgress(event_id='1eefadeb-3717-4359-ad78-77a1e242a60f' download_progress=DownloadPendi[0m
+[ 12:09:26.747 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='1eefadeb-3717-4359-ad78-77a1e242a60f' download_progress=DownloadPendi[0m
+[ 12:09:26.750 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 46: NodeDownloadProgress(event_id='65da3a33-7a38-4dde-9608-757252ee6b01' download_progress=DownloadPendi[0m
+[ 12:09:26.751 | [1mINFO    [0m | exo.download.coordinator:_emit_existing_download_progress:277 ] [1mDownloadCoordinator: Done emitting existing download progress.[0m
+[ 12:09:26.751 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='65da3a33-7a38-4dde-9608-757252ee6b01' download_progress=DownloadPendi[0m
+[ 12:09:26.751 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 47: NodeDownloadProgress(event_id='7fd11014-f86c-4e07-a8f4-e5c77e9dd43e' download_progress=DownloadPendi[0m
+[ 12:09:26.751 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='7fd11014-f86c-4e07-a8f4-e5c77e9dd43e' download_progress=DownloadPendi[0m
+[ 12:09:29.463 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 48: NodeGatheredInfo(event_id='b0ee3268-ef92-49aa-9b13-fce7c39bde85' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:29.464 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='b0ee3268-ef92-49aa-9b13-fce7c39bde85' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:30.605 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 49: NodeGatheredInfo(event_id='5193d844-ac40-4939-a640-f8ed6edb235c' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:30.606 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='5193d844-ac40-4939-a640-f8ed6edb235c' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:31.719 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 50: NodeGatheredInfo(event_id='1db49e92-5dcb-4d49-bd2d-329cb59eecb8' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:31.720 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='1db49e92-5dcb-4d49-bd2d-329cb59eecb8' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:31.776 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 51: NodeGatheredInfo(event_id='0bc8e9a6-3d06-406c-8776-503fde3c972e' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:31.776 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='0bc8e9a6-3d06-406c-8776-503fde3c972e' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:32.857 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 52: NodeGatheredInfo(event_id='55498874-7267-499c-9f08-dd6eca885517' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:32.858 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='55498874-7267-499c-9f08-dd6eca885517' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:33.989 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 53: NodeGatheredInfo(event_id='0d1e27aa-dc55-479f-831e-4c0c59e9bd5e' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:33.991 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='0d1e27aa-dc55-479f-831e-4c0c59e9bd5e' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:35.141 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 54: NodeGatheredInfo(event_id='8ffc3d39-d6e3-4d5a-a521-838ce83005e0' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:35.143 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='8ffc3d39-d6e3-4d5a-a521-838ce83005e0' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:36.297 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 55: NodeGatheredInfo(event_id='38ffd197-3e12-4f68-b532-fad3e023af36' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:36.298 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='38ffd197-3e12-4f68-b532-fad3e023af36' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:36.923 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 56: NodeGatheredInfo(event_id='0d048d0d-25d4-4ebd-9699-4ecdb724a0de' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:36.924 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='0d048d0d-25d4-4ebd-9699-4ecdb724a0de' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:37.422 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 57: NodeGatheredInfo(event_id='b5e8e14e-ae25-42cf-8b9c-8c4c2e431f6a' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:37.423 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='b5e8e14e-ae25-42cf-8b9c-8c4c2e431f6a' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:38.568 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 58: NodeGatheredInfo(event_id='3ca78920-9012-461e-aac0-56268e0af78c' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:38.570 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='3ca78920-9012-461e-aac0-56268e0af78c' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:39.711 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 59: NodeGatheredInfo(event_id='098e9881-cc04-4562-8144-094193151fc1' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:39.712 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='098e9881-cc04-4562-8144-094193151fc1' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:40.852 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 60: NodeGatheredInfo(event_id='3d5294be-b1a5-4afa-9fcf-9c666a8ef1c4' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:40.853 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='3d5294be-b1a5-4afa-9fcf-9c666a8ef1c4' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:41.976 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 61: NodeGatheredInfo(event_id='15009e12-ff7f-4502-aac0-27867436b80f' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:41.977 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='15009e12-ff7f-4502-aac0-27867436b80f' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:42.090 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 62: NodeGatheredInfo(event_id='601417ec-4524-431e-829e-2e1be9ee524a' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:42.091 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='601417ec-4524-431e-829e-2e1be9ee524a' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:43.109 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 63: NodeGatheredInfo(event_id='493f5044-7bc4-403c-9626-589780d1eacd' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:43.110 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='493f5044-7bc4-403c-9626-589780d1eacd' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:44.248 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 64: NodeGatheredInfo(event_id='1336d54a-4db4-4881-8aaa-73c5c57cd6ff' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:44.249 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='1336d54a-4db4-4881-8aaa-73c5c57cd6ff' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:45.377 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 65: NodeGatheredInfo(event_id='320f1113-3a9f-4578-81e4-5284c16f2b0d' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:45.378 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='320f1113-3a9f-4578-81e4-5284c16f2b0d' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:46.505 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 66: NodeGatheredInfo(event_id='cd39eadf-eeac-4146-9717-7c0282027691' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:46.505 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='cd39eadf-eeac-4146-9717-7c0282027691' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:47.191 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 67: NodeGatheredInfo(event_id='fcc30893-9673-4bc4-bb6b-23c892b5d219' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:47.192 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='fcc30893-9673-4bc4-bb6b-23c892b5d219' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:47.636 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 68: NodeGatheredInfo(event_id='cb8137ed-6ff4-4556-a070-563e38255fe4' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:47.637 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='cb8137ed-6ff4-4556-a070-563e38255fe4' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:48.779 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 69: NodeGatheredInfo(event_id='bc49a3a4-6a58-49c4-840f-5f6d0736a3b9' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:48.780 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='bc49a3a4-6a58-49c4-840f-5f6d0736a3b9' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:49.920 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 70: NodeGatheredInfo(event_id='5a595f72-0412-44b7-84a9-762e51a16bd3' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:49.921 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='5a595f72-0412-44b7-84a9-762e51a16bd3' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:51.055 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 71: NodeGatheredInfo(event_id='2ad3684d-e16e-4477-ad68-a8aa5fe55a6b' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:51.057 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='2ad3684d-e16e-4477-ad68-a8aa5fe55a6b' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:52.202 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 72: NodeGatheredInfo(event_id='e8ed8891-aa93-4794-bb58-0796c987e8ab' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:52.203 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='e8ed8891-aa93-4794-bb58-0796c987e8ab' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:52.341 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 73: NodeGatheredInfo(event_id='cdefd109-8177-4699-a459-4bcffe27430c' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:52.342 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='cdefd109-8177-4699-a459-4bcffe27430c' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:53.348 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 74: NodeGatheredInfo(event_id='15a4a367-8830-4538-9499-a54661a5cc34' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:53.348 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='15a4a367-8830-4538-9499-a54661a5cc34' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:54.494 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 75: NodeGatheredInfo(event_id='c32e92d4-b157-43e1-bc56-d0b656a04749' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:54.495 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='c32e92d4-b157-43e1-bc56-d0b656a04749' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 12:09:54.798 | [1mINFO    [0m | exo.main:main:272 ] [1mEXO Shutdown complete[0m
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                                                                       ║
+║   ███████╗██╗  ██╗ ██████╗                                            ║
+║   ██╔════╝╚██╗██╔╝██╔═══██╗                                           ║
+║   █████╗   ╚███╔╝ ██║   ██║                                           ║
+║   ██╔══╝   ██╔██╗ ██║   ██║                                           ║
+║   ███████╗██╔╝ ██╗╚██████╔╝                                           ║
+║   ╚══════╝╚═╝  ╚═╝ ╚═════╝                                            ║
+║                                                                       ║
+║   Distributed AI Inference Cluster                                    ║
+║                                                                       ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                                                                       ║
+║  🌐 Dashboard & API Ready                                             ║
+║                                                                       ║
+║  http://localhost:52415                                               ║
+║                                                                       ║
+║  Click the URL above to open the dashboard in your browser            ║
+║                                                                       ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+
+
+thread 'tokio-runtime-worker' (628271) panicked at /Users/jasonschulz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-0.27.2/src/interpreter_lifecycle.rs:117:13:
+assertion `left != right` failed: The Python interpreter is not initialized and the `auto-initialize` feature is not enabled.
+
+Consider calling `Python::initialize()` before attempting to use Python APIs.
+  left: 0
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'tokio-runtime-worker' (628271) panicked at /Users/jasonschulz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-0.27.2/src/interpreter_lifecycle.rs:117:13:
+assertion `left != right` failed: The Python interpreter is not initialized and the `auto-initialize` feature is not enabled.
+
+Consider calling `Python::initialize()` before attempting to use Python APIs.
+  left: 0
+ right: 0
+stack backtrace:
+   0:        0x10a100998 - <<std[3792e1592c6e09a0]::sys::backtrace::BacktraceLock>::print::DisplayBacktrace as core[42fb634d6afb2532]::fmt::Display>::fmt
+   1:        0x10a112de4 - core[42fb634d6afb2532]::fmt::write
+   2:        0x10a104420 - <std[3792e1592c6e09a0]::sys::stdio::unix::Stderr as std[3792e1592c6e09a0]::io::Write>::write_fmt
+   3:        0x10a0eda64 - std[3792e1592c6e09a0]::panicking::default_hook::{closure#0}
+   4:        0x10a0fac30 - std[3792e1592c6e09a0]::panicking::default_hook
+   5:        0x10a0faf58 - std[3792e1592c6e09a0]::panicking::panic_with_hook
+   6:        0x10a0edb10 - std[3792e1592c6e09a0]::panicking::panic_handler::{closure#0}
+   7:        0x10a0e3704 - std[3792e1592c6e09a0]::sys::backtrace::__rust_end_short_backtrace::<std[3792e1592c6e09a0]::panicking::panic_handler::{closure#0}, !>
+   8:        0x10a0ee118 - __rustc[27b7156953f65f57]::rust_begin_unwind
+   9:        0x10a13f128 - core[42fb634d6afb2532]::panicking::panic_fmt
+  10:        0x10a13f0b4 - core[42fb634d6afb2532]::panicking::assert_failed_inner
+  11:        0x10a13d79c - core[42fb634d6afb2532]::panicking::assert_failed::<i32, i32>
+  12:        0x10a0d71fc - <std[3792e1592c6e09a0]::sync::once::Once>::call_once_force::<pyo3[e9b54613349630ae]::interpreter_lifecycle::ensure_initialized::{closure#0}>::{closure#0}
+  13:        0x10a13dc20 - <std[3792e1592c6e09a0]::sys::sync::once::queue::Once>::call
+  14:        0x10a0d82ec - pyo3[e9b54613349630ae]::interpreter_lifecycle::ensure_initialized
+  15:        0x10a0db054 - <pyo3[e9b54613349630ae]::internal::state::AttachGuard>::attach
+  16:        0x10a0d9fc0 - <pyo3[e9b54613349630ae]::coroutine::waker::AsyncioWaker as alloc[57e53cd7c195233f]::task::Wake>::wake_by_ref
+  17:        0x10a0d7134 - alloc[57e53cd7c195233f]::task::raw_waker::wake::<pyo3[e9b54613349630ae]::coroutine::waker::AsyncioWaker>
+  18:        0x109ee59dc - core[42fb634d6afb2532]::ptr::drop_in_place::<tokio[da5b9a185bbc4692]::sync::mpsc::bounded::Sender<exo_pyo3_bindings[f27e90800538da18]::networking::PyConnectionUpdate>>
+  19:        0x109eea788 - <exo_pyo3_bindings[f27e90800538da18]::networking::PyNetworkingHandle>::py_new::{closure#1}
+  20:        0x109eebe74 - <tokio[da5b9a185bbc4692]::runtime::task::core::Core<<exo_pyo3_bindings[f27e90800538da18]::networking::PyNetworkingHandle>::py_new::{closure#1}, alloc[57e53cd7c195233f]::sync::Arc<tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::handle::Handle>>>::poll
+  21:        0x109e77588 - <tokio[da5b9a185bbc4692]::runtime::task::harness::Harness<<exo_pyo3_bindings[f27e90800538da18]::networking::PyNetworkingHandle>::py_new::{closure#1}, alloc[57e53cd7c195233f]::sync::Arc<tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::handle::Handle>>>::poll
+  22:        0x10a0bc734 - <tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::worker::Context>::run_task
+  23:        0x10a0bbd58 - <tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::worker::Context>::run
+  24:        0x10a0a7300 - <tokio[da5b9a185bbc4692]::runtime::context::scoped::Scoped<tokio[da5b9a185bbc4692]::runtime::scheduler::Context>>::set::<tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::worker::run::{closure#0}::{closure#0}, ()>
+  25:        0x10a0a9004 - tokio[da5b9a185bbc4692]::runtime::context::runtime::enter_runtime::<tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::worker::run::{closure#0}, ()>
+  26:        0x10a0bcad0 - tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::worker::run
+  27:        0x10a0b3a5c - <tokio[da5b9a185bbc4692]::runtime::blocking::task::BlockingTask<<tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::worker::Launch>::launch::{closure#0}> as core[42fb634d6afb2532]::future::future::Future>::poll
+  28:        0x10a0c0ca0 - <tokio[da5b9a185bbc4692]::runtime::task::core::Core<tokio[da5b9a185bbc4692]::runtime::blocking::task::BlockingTask<<tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::worker::Launch>::launch::{closure#0}>, tokio[da5b9a185bbc4692]::runtime::blocking::schedule::BlockingSchedule>>::poll
+  29:        0x10a0a6b58 - <tokio[da5b9a185bbc4692]::runtime::task::harness::Harness<tokio[da5b9a185bbc4692]::runtime::blocking::task::BlockingTask<<tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::worker::Launch>::launch::{closure#0}>, tokio[da5b9a185bbc4692]::runtime::blocking::schedule::BlockingSchedule>>::poll
+  30:        0x10a0b51d4 - <tokio[da5b9a185bbc4692]::runtime::blocking::pool::Inner>::run
+  31:        0x10a0b85d0 - std[3792e1592c6e09a0]::sys::backtrace::__rust_begin_short_backtrace::<<tokio[da5b9a185bbc4692]::runtime::blocking::pool::Spawner>::spawn_thread::{closure#0}, ()>
+  32:        0x10a0b0240 - <std[3792e1592c6e09a0]::thread::lifecycle::spawn_unchecked<<tokio[da5b9a185bbc4692]::runtime::blocking::pool::Spawner>::spawn_thread::{closure#0}, ()>::{closure#1} as core[42fb634d6afb2532]::ops::function::FnOnce<()>>::call_once::{shim:vtable#0}
+  33:        0x10a1002f8 - <std[3792e1592c6e09a0]::sys::thread::unix::Thread>::new::thread_start
+  34:        0x18b82ec08 - __pthread_cond_wait
+
+thread 'tokio-runtime-worker' (628271) panicked at /rustc/5c49c4f7c8393c861b849441d27f5d40e0f1e33b/library/core/src/panicking.rs:233:5:
+panic in a destructor during cleanup
+thread caused non-unwinding panic. aborting.

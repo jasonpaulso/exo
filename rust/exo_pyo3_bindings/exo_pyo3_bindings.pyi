@@ -168,10 +168,15 @@ class NetworkingHandle:
     async def gossipsub_recv_many(self, limit: builtins.int) -> builtins.list[tuple[builtins.str, bytes]]:
         r"""
         Receives at most `limit` messages from the `GossipSub` network and returns them.
-        
+
         For `limit = 0`, an empty collection of messages will be returned immediately.
         For `limit > 0`, if there are no messages in the channel's queue this method
         will sleep until a message is sent.
+        """
+    async def shutdown(self) -> None:
+        r"""
+        Gracefully shuts down the networking task and waits for it to complete.
+        This should be called before allowing the Python interpreter to shut down.
         """
 
 @typing.final
