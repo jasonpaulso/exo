@@ -8,6 +8,7 @@
     nodeThunderboltBridge,
     type NodeInfo,
   } from "$lib/stores/app.svelte";
+  import { mode } from "mode-watcher";
 
   interface Props {
     class?: string;
@@ -22,6 +23,35 @@
     filteredNodes = new Set(),
     onNodeClick,
   }: Props = $props();
+
+  // Theme-aware colors
+  const isDark = $derived(mode.current === "dark");
+  const colors = $derived({
+    // Text colors
+    textPrimary: isDark ? "rgba(255,255,255,0.9)" : "rgba(30,30,30,0.9)",
+    textSecondary: isDark ? "rgba(179,179,179,0.9)" : "rgba(80,80,80,0.9)",
+    textMuted: isDark ? "rgba(179,179,179,0.7)" : "rgba(100,100,100,0.7)",
+    textDebug: isDark ? "rgba(255,255,255,0.85)" : "rgba(30,30,30,0.85)",
+    textError: "rgba(248,113,113,0.9)",
+    // Yellow accent
+    yellow: isDark ? "#FFD700" : "#b8860b",
+    yellowRgba: (opacity: number) => isDark
+      ? `rgba(255,215,0,${opacity})`
+      : `rgba(184,134,11,${opacity})`,
+    // Wire/stroke colors
+    wireDefault: isDark ? "rgba(179,179,179,0.8)" : "rgba(100,100,100,0.8)",
+    wireHighlight: isDark ? "rgba(255,215,0,0.9)" : "rgba(184,134,11,0.9)",
+    wireHover: isDark ? "rgba(255,215,0,0.7)" : "rgba(184,134,11,0.7)",
+    wireFiltered: isDark ? "rgba(140,140,140,0.6)" : "rgba(160,160,160,0.6)",
+    wireBright: isDark ? "rgba(255,255,255,0.9)" : "rgba(30,30,30,0.9)",
+    // Fill colors
+    fillHighlight: isDark ? "rgba(255,215,0,0.15)" : "rgba(184,134,11,0.15)",
+    fillHover: isDark ? "rgba(255,215,0,0.12)" : "rgba(184,134,11,0.12)",
+    fillDefault: isDark ? "rgba(255,215,0,0.08)" : "rgba(184,134,11,0.08)",
+    fillFilter: isDark ? "rgba(255,215,0,0.25)" : "rgba(184,134,11,0.25)",
+    // Awaiting text
+    awaitingText: isDark ? "rgba(255,215,0,0.4)" : "rgba(184,134,11,0.5)",
+  });
 
   let svgContainer: SVGSVGElement | undefined = $state();
   let resizeObserver: ResizeObserver | undefined;
@@ -217,7 +247,7 @@
         .attr("y", centerY)
         .attr("text-anchor", "middle")
         .attr("dominant-baseline", "middle")
-        .attr("fill", "rgba(255,215,0,0.4)")
+        .attr("fill", colors.awaitingText)
         .attr("font-size", isMinimized ? 10 : 12)
         .attr("font-family", "SF Mono, monospace")
         .attr("letter-spacing", "0.1em")
@@ -488,8 +518,8 @@
               .attr(
                 "fill",
                 conn.missingIface
-                  ? "rgba(248,113,113,0.9)"
-                  : "rgba(255,255,255,0.85)",
+                  ? colors.textError
+                  : colors.textDebug,
               )
               .text(label);
             currentY += isTop ? lineHeight : -lineHeight;
@@ -548,22 +578,22 @@
 
       // Holographic wireframe colors - bright yellow for filter, subtle yellow for hover, grey for filtered out
       const wireColor = isInFilter
-        ? "rgba(255,215,0,1)" // Bright yellow for filter selection
+        ? colors.yellowRgba(1) // Bright yellow for filter selection
         : isHovered
-          ? "rgba(255,215,0,0.7)" // Subtle yellow for hover
+          ? colors.wireHover // Subtle yellow for hover
           : isHighlighted
-            ? "rgba(255,215,0,0.9)" // Yellow for instance highlight
+            ? colors.wireHighlight // Yellow for instance highlight
             : isFilteredOut
-              ? "rgba(140,140,140,0.6)" // Grey for filtered out
-              : "rgba(179,179,179,0.8)"; // Default
-      const wireColorBright = "rgba(255,255,255,0.9)";
+              ? colors.wireFiltered // Grey for filtered out
+              : colors.wireDefault; // Default
+      const wireColorBright = colors.wireBright;
       const fillColor = isInFilter
-        ? "rgba(255,215,0,0.25)"
+        ? colors.fillFilter
         : isHovered
-          ? "rgba(255,215,0,0.12)"
+          ? colors.fillHover
           : isHighlighted
-            ? "rgba(255,215,0,0.15)"
-            : "rgba(255,215,0,0.08)";
+            ? colors.fillHighlight
+            : colors.fillDefault;
       const strokeWidth = isInFilter
         ? 3
         : isHovered
@@ -572,7 +602,7 @@
             ? 2.5
             : 1.5;
       const screenFill = "rgba(0,20,40,0.9)";
-      const glowColor = "rgba(255,215,0,0.3)";
+      const glowColor = colors.yellowRgba(0.3);
 
       const nodeG = nodesGroup
         .append("g")
@@ -1016,13 +1046,13 @@
           .attr("y", nameY)
           .attr("text-anchor", "middle")
           .attr("dominant-baseline", "middle")
-          .attr("fill", "#FFD700")
+          .attr("fill", colors.yellow)
           .attr("font-size", fontSize)
           .attr("font-weight", 500)
           .attr("font-family", "SF Mono, Monaco, monospace")
           .text(displayName);
 
-        // Memory info below - used in grey, total in yellow
+        // Memory info below - used in yellow, total in secondary
         const infoY = nodeInfo.y + iconBaseHeight / 2 + 16;
         const memText = nodeG
           .append("text")
@@ -1033,15 +1063,15 @@
           .attr("font-family", "SF Mono, Monaco, monospace");
         memText
           .append("tspan")
-          .attr("fill", "rgba(255,215,0,0.9)")
+          .attr("fill", colors.yellowRgba(0.9))
           .text(`${formatBytes(ramUsed)}`);
         memText
           .append("tspan")
-          .attr("fill", "rgba(179,179,179,0.9)")
+          .attr("fill", colors.textSecondary)
           .text(`/${formatBytes(ramTotal)}`);
         memText
           .append("tspan")
-          .attr("fill", "rgba(179,179,179,0.7)")
+          .attr("fill", colors.textMuted)
           .text(` (${ramUsagePercent.toFixed(0)}%)`);
       } else if (showCompactLabels) {
         // COMPACT MODE: Just name and basic info (4+ nodes)
@@ -1058,7 +1088,7 @@
           .attr("x", nodeInfo.x)
           .attr("y", nameY)
           .attr("text-anchor", "middle")
-          .attr("fill", "#FFD700")
+          .attr("fill", colors.yellow)
           .attr("font-size", fontSize)
           .attr("font-family", "SF Mono, Monaco, monospace")
           .text(shortName);
@@ -1070,7 +1100,7 @@
           .attr("x", nodeInfo.x)
           .attr("y", statsY)
           .attr("text-anchor", "middle")
-          .attr("fill", "rgba(255,215,0,0.7)")
+          .attr("fill", colors.yellowRgba(0.7))
           .attr("font-size", fontSize * 0.85)
           .attr("font-family", "SF Mono, Monaco, monospace")
           .text(
@@ -1091,13 +1121,13 @@
           .attr("x", nodeInfo.x)
           .attr("y", nameY)
           .attr("text-anchor", "middle")
-          .attr("fill", "#FFD700")
+          .attr("fill", colors.yellow)
           .attr("font-size", fontSize)
           .attr("font-weight", "500")
           .attr("font-family", "SF Mono, Monaco, monospace")
           .text(shortName);
 
-        // Memory info below icon - used in grey, total in yellow (same as main topology)
+        // Memory info below icon - used in yellow, total in secondary (same as main topology)
         const infoY = nodeInfo.y + iconBaseHeight / 2 + 10;
         const memTextMini = nodeG
           .append("text")
@@ -1108,15 +1138,15 @@
           .attr("font-family", "SF Mono, Monaco, monospace");
         memTextMini
           .append("tspan")
-          .attr("fill", "rgba(255,215,0,0.9)")
+          .attr("fill", colors.yellowRgba(0.9))
           .text(`${formatBytes(ramUsed)}`);
         memTextMini
           .append("tspan")
-          .attr("fill", "rgba(179,179,179,0.9)")
+          .attr("fill", colors.textSecondary)
           .text(`/${formatBytes(ramTotal)}`);
         memTextMini
           .append("tspan")
-          .attr("fill", "rgba(179,179,179,0.7)")
+          .attr("fill", colors.textMuted)
           .text(` (${ramUsagePercent.toFixed(0)}%)`);
       }
 
@@ -1153,6 +1183,7 @@
     const _hoveredNodeId = hoveredNodeId;
     const _filteredNodes = filteredNodes;
     const _highlightedNodes = highlightedNodes;
+    const _isDark = isDark; // Re-render on theme change
     if (_data) {
       renderGraph();
     }
