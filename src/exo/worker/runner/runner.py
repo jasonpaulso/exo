@@ -153,6 +153,9 @@ def main(
                             )
                         )
                         time.sleep(0.5)
+                        # Exit the runner process to free memory immediately
+                        logger.error("Model loading timed out - exiting runner process")
+                        sys.exit(1)
 
                     if ModelTask.TextGeneration in shard_metadata.model_card.tasks:
                         model, tokenizer = load_mlx_items(

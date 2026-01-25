@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# ExoDev - Development launcher for EXO with proper macOS network permissions
+# This launcher runs uv run exo from the source directory with all passed arguments
+
+# Determine the directory where this app is located
+APP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+EXO_SOURCE_DIR="$(dirname "$APP_DIR")"
+
+# Change to the exo source directory
+cd "$EXO_SOURCE_DIR" || {
+    echo "Error: Could not find exo source directory at $EXO_SOURCE_DIR"
+    exit 1
+}
+
+# Check if uv is available
+if ! command -v uv &> /dev/null; then
+    echo "Error: uv is not installed or not in PATH"
+    echo "Install with: curl -LsSf https://astral.sh/uv/install.sh | sh"
+    exit 1
+fi
+
+# Run exo with all passed arguments
+echo "Starting EXO from source: $EXO_SOURCE_DIR"
+echo "Command: uv run exo $@"
+echo "----------------------------------------"
+
+exec uv run exo "$@"

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleExecutable</key>
+	<string>ExoDev</string>
+	<key>CFBundleIdentifier</key>
+	<string>net.exolabs.exo.dev</string>
+	<key>CFBundleName</key>
+	<string>ExoDev</string>
+	<key>CFBundleDisplayName</key>
+	<string>EXO (Development)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.15</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>EXO needs local network access to discover and connect to other devices in your cluster for distributed AI inference.</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_p2p._tcp</string>
+		<string>_p2p._udp</string>
+		<string>_libp2p._udp</string>
+	</array>
+	<key>LSUIElement</key>
+	<true/>
+</dict>
+</plist>
