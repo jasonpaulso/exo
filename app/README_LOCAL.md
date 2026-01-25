@@ -60,6 +60,7 @@ cd app/EXO && xcodebuild build -scheme EXO -configuration Release -derivedDataPa
 # 2. Prepare output directory
 mkdir -p output/dmg-root
 cp -R app/EXO/build/Build/Products/Release/EXO.app output/dmg-root/
+rm -rf output/dmg-root/EXO.app/Contents/Resources/exo
 cp -R dist/exo output/dmg-root/EXO.app/Contents/Resources/exo
 ln -sf /Applications output/dmg-root/Applications
 
