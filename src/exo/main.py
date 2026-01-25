@@ -14,7 +14,8 @@ from pydantic import PositiveInt
 
 import exo.routing.topics as topics
 from exo.download.coordinator import DownloadCoordinator
-from exo.download.impl_shard_downloader import exo_shard_downloader
+from exo.download.impl_shard_downloader import exo_cluster_shard_downloader
+from exo.download.node_address_book import NodeAddressBook
 from exo.master.api import API  # TODO: should API be in master?
 from exo.master.main import Master
 from exo.routing.router import Router, get_node_id_keypair
@@ -40,6 +41,8 @@ class Node:
 
     node_id: NodeId
     event_index_counter: Iterator[int]
+    node_address_book: NodeAddressBook
+    model_store_port: int
     _tg: TaskGroup = field(init=False, default_factory=anyio.create_task_group)
 
     @classmethod
@@ -60,12 +63,22 @@ class Node:
         # Create shared event index counter for Worker and DownloadCoordinator
         event_index_counter = itertools.count()
 
+        node_address_book = NodeAddressBook()
+
         # Create DownloadCoordinator (unless --no-downloads)
         if not args.no_downloads:
             download_coordinator = DownloadCoordinator(
                 node_id,
                 session_id,
-                exo_shard_downloader(),
+                exo_cluster_shard_downloader(
+                    node_id=node_id,
+                    session_id=session_id,
+                    node_address_book=node_address_book,
+                    model_store_port=args.model_store_port,
+                ),
+                connection_message_receiver=router.receiver(topics.CONNECTION_MESSAGES),
+                node_address_book=node_address_book,
+                model_store_port=args.model_store_port,
                 download_command_receiver=router.receiver(topics.DOWNLOAD_COMMANDS),
                 local_event_sender=router.sender(topics.LOCAL_EVENTS),
                 event_index_counter=event_index_counter,
@@ -133,6 +146,8 @@ class Node:
             api,
             node_id,
             event_index_counter,
+            node_address_book,
+            args.model_store_port,
         )
 
     async def run(self):
@@ -213,7 +228,17 @@ class Node:
                         self.download_coordinator = DownloadCoordinator(
                             self.node_id,
                             result.session_id,
-                            exo_shard_downloader(),
+                            exo_cluster_shard_downloader(
+                                node_id=self.node_id,
+                                session_id=result.session_id,
+                                node_address_book=self.node_address_book,
+                                model_store_port=self.model_store_port,
+                            ),
+                            connection_message_receiver=self.router.receiver(
+                                topics.CONNECTION_MESSAGES
+                            ),
+                            node_address_book=self.node_address_book,
+                            model_store_port=self.model_store_port,
                             download_command_receiver=self.router.receiver(
                                 topics.DOWNLOAD_COMMANDS
                             ),
@@ -278,6 +303,7 @@ class Args(CamelCaseModel):
     force_master: bool = False
     spawn_api: bool = False
     api_port: PositiveInt = 52415
+    model_store_port: PositiveInt = 52416
     tb_only: bool = False
     no_worker: bool = False
     no_downloads: bool = False
@@ -318,6 +344,13 @@ class Args(CamelCaseModel):
             type=int,
             dest="api_port",
             default=52415,
+        )
+        parser.add_argument(
+            "--model-store-port",
+            type=int,
+            dest="model_store_port",
+            default=52416,
+            help="Port used by the master to distribute cached model files to other nodes",
         )
         parser.add_argument(
             "--no-worker",
