@@ -156,6 +156,14 @@ class Node:
             import sys
 
             sys.exit(1)
+        # Schedule async shutdown in the running event loop
+        self._tg.start_soon(self._async_shutdown)
+
+    async def _async_shutdown(self):
+        """Perform graceful async shutdown before cancelling task group."""
+        # Shutdown router first to stop Rust networking task before Python cleanup
+        await self.router.shutdown()
+        # Now cancel the task group
         self._tg.cancel_scope.cancel()
 
     async def _elect_loop(self):

@@ -161,6 +161,13 @@ class Router:
 
     async def shutdown(self):
         logger.debug("Shutting down Router")
+        # First, gracefully shutdown the Rust networking task.
+        # This MUST happen before we cancel Python tasks to avoid the Rust task
+        # trying to wake Python coroutines after the interpreter starts shutting down.
+        try:
+            await self._net.shutdown()
+        except Exception as e:
+            logger.warning(f"Error during networking shutdown: {e}")
         if not self._tg:
             return
         self._tg.cancel_scope.cancel()

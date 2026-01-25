@@ -245,10 +245,12 @@ def _find_ip_prioritised(
     other_node_id: NodeId,
     cycle_digraph: Topology,
     node_network: Mapping[NodeId, NodeNetworkInfo],
+    prefer_thunderbolt: bool = False,
 ) -> str | None:
     """Find an IP address between nodes with prioritization.
 
-    Priority: ethernet > wifi > unknown > thunderbolt
+    Default priority: ethernet > wifi > unknown > thunderbolt
+    With prefer_thunderbolt=True: thunderbolt > ethernet > wifi > unknown
     """
     ips = list(_find_connection_ip(node_id, other_node_id, cycle_digraph))
     if not ips:
@@ -257,14 +259,24 @@ def _find_ip_prioritised(
     ip_to_type = {
         iface.ip_address: iface.interface_type for iface in other_network.interfaces
     }
-    priority = {
-        "ethernet": 0,
-        "wifi": 1,
-        "unknown": 2,
-        "maybe_ethernet": 3,
-        "thunderbolt": 4,
-    }
-    return min(ips, key=lambda ip: priority.get(ip_to_type.get(ip, "unknown"), 2))
+    if prefer_thunderbolt:
+        # For JACCL/RDMA, prioritize Thunderbolt interfaces
+        priority = {
+            "thunderbolt": 0,
+            "ethernet": 1,
+            "wifi": 2,
+            "unknown": 3,
+            "maybe_ethernet": 4,
+        }
+    else:
+        priority = {
+            "ethernet": 0,
+            "wifi": 1,
+            "unknown": 2,
+            "maybe_ethernet": 3,
+            "thunderbolt": 4,
+        }
+    return min(ips, key=lambda ip: priority.get(ip_to_type.get(ip, "unknown"), 3))
 
 
 def get_mlx_ring_hosts_by_node(
@@ -327,6 +339,9 @@ def get_mlx_jaccl_coordinators(
 
     Select an IP address that each node can reach for the rank 0 node. Returns
     address in format "X.X.X.X:PORT" per node.
+
+    For JACCL/RDMA, Thunderbolt interfaces are prioritized since RDMA
+    communication happens over Thunderbolt.
     """
     logger.debug(f"Selecting coordinator: {coordinator}")
 
@@ -334,7 +349,10 @@ def get_mlx_jaccl_coordinators(
         if n == coordinator:
             return "0.0.0.0"
 
-        ip = _find_ip_prioritised(n, coordinator, cycle_digraph, node_network)
+        # Prioritize Thunderbolt IPs for JACCL/RDMA coordinator
+        ip = _find_ip_prioritised(
+            n, coordinator, cycle_digraph, node_network, prefer_thunderbolt=True
+        )
         if ip is not None:
             return ip
 

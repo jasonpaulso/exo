@@ -132,6 +132,9 @@ struct PyConnectionUpdate {
 }
 
 enum ToTask {
+    Shutdown {
+        result_tx: oneshot::Sender<()>,
+    },
     GossipsubSubscribe {
         topic: String,
         result_tx: oneshot::Sender<PyResult<bool>>,
@@ -172,6 +175,11 @@ async fn networking_task(
 
                 // dispatch incoming messages
                 match message {
+                    Shutdown { result_tx } => {
+                        log::info!("RUST: received shutdown signal");
+                        let _ = result_tx.send(());
+                        break;
+                    }
                     GossipsubSubscribe { topic, result_tx } => {
                         // try to subscribe
                         let result = swarm.behaviour_mut()
@@ -305,10 +313,11 @@ struct PyNetworkingHandle {
 
 impl Drop for PyNetworkingHandle {
     fn drop(&mut self) {
-        // TODO: may or may not need to await a "kill-signal" oneshot channel message,
-        //       to ensure that the networking task is done BEFORE exiting the clear function...
-        //       but this may require GIL?? and it may not be safe to call GIL here??
-        self.to_task_tx = None; // Using Option<T> as a trick to force channel to be dropped
+        // Note: For proper cleanup, call shutdown() from Python before letting this be dropped.
+        // This just closes the channel as a fallback, which will cause the task to exit
+        // when it next tries to receive. We can't await here, so we can't guarantee
+        // the task has stopped before drop returns.
+        self.to_task_tx = None;
     }
 }
 
@@ -383,10 +392,33 @@ impl PyNetworkingHandle {
 
     #[gen_stub(skip)]
     fn __clear__(&mut self) {
-        // TODO: may or may not need to await a "kill-signal" oneshot channel message,
-        //       to ensure that the networking task is done BEFORE exiting the clear function...
-        //       but this may require GIL?? and it may not be safe to call GIL here??
+        // Note: For proper cleanup, call shutdown() before letting the handle be garbage collected.
+        // This just closes the channel which will eventually cause the task to exit,
+        // but doesn't wait for it to complete.
         self.to_task_tx = None; // Using Option<T> as a trick to force channel to be dropped
+    }
+
+    /// Gracefully shuts down the networking task and waits for it to complete.
+    /// This should be called before allowing the Python interpreter to shut down.
+    async fn shutdown(&mut self) -> PyResult<()> {
+        // If already shut down, return immediately
+        let Some(tx) = self.to_task_tx.take() else {
+            return Ok(());
+        };
+
+        let (result_tx, result_rx) = oneshot::channel();
+
+        // Send shutdown signal
+        if tx.send(ToTask::Shutdown { result_tx }).await.is_err() {
+            // Channel already closed, task has already exited
+            log::info!("RUST: networking task already stopped");
+            return Ok(());
+        }
+
+        // Wait for confirmation that the task has stopped
+        let _ = result_rx.allow_threads_py().await;
+        log::info!("RUST: networking shutdown complete");
+        Ok(())
     }
 
     // ---- Connection update receiver methods ----

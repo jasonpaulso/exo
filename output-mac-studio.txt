@@ -1,0 +1,430 @@
+warning: `VIRTUAL_ENV=/Users/jasonschulz/Developer-local/Tools/exo-iterations/exo/.venv` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead
+[ 13:42:23.124 | [1mINFO    [0m | exo.main:main:259 ] [1mStarting EXO[0m
+[ 13:42:23.124 | [1mINFO    [0m | exo.main:main:260 ] [1mEXO_LIBP2P_NAMESPACE: None[0m
+[ 13:42:23.127 | [34m[1mDEBUG   [0m | logging:handle:1681 ] [34m[1mUsing selector: KqueueSelector[0m
+[ 13:42:23.127 | [34m[1mDEBUG   [0m | logging:handle:1681 ] [34m[1mAttempting to acquire lock 4515767232 on /Users/jasonschulz/.exo/node_id.keypair.lock[0m
+[ 13:42:23.127 | [34m[1mDEBUG   [0m | logging:handle:1681 ] [34m[1mLock 4515767232 acquired on /Users/jasonschulz/.exo/node_id.keypair.lock[0m
+[ 13:42:23.128 | [34m[1mDEBUG   [0m | logging:handle:1681 ] [34m[1mAttempting to release lock 4515767232 on /Users/jasonschulz/.exo/node_id.keypair.lock[0m
+[ 13:42:23.128 | [34m[1mDEBUG   [0m | logging:handle:1681 ] [34m[1mLock 4515767232 released on /Users/jasonschulz/.exo/node_id.keypair.lock[0m
+[ 13:42:23.132 | [1mINFO    [0m | exo.routing.router:_networking_subscribe:169 ] [1mSubscribing to global_events[0m
+[ 13:42:23.132 | [1mINFO    [0m | exo.routing.router:_networking_subscribe:169 ] [1mSubscribing to local_events[0m
+[ 13:42:23.132 | [1mINFO    [0m | exo.routing.router:_networking_subscribe:169 ] [1mSubscribing to commands[0m
+[ 13:42:23.133 | [1mINFO    [0m | exo.routing.router:_networking_subscribe:169 ] [1mSubscribing to election_messages[0m
+[ 13:42:23.133 | [1mINFO    [0m | exo.routing.router:_networking_subscribe:169 ] [1mSubscribing to connection_messages[0m
+[ 13:42:23.133 | [1mINFO    [0m | exo.routing.router:_networking_subscribe:169 ] [1mSubscribing to download_commands[0m
+[ 13:42:23.133 | [1mINFO    [0m | exo.main:create:58 ] [1mStarting node 12D3KooWPHFUBTjATb5xBcq38GSwj9cN9La75AeW9vhiqDJycZqa[0m
+[ 13:42:23.154 | [34m[1mDEBUG   [0m | logging:handle:1681 ] [34m[1mUsing selector: KqueueSelector[0m
+[ 13:42:23.154 | [34m[1mDEBUG   [0m | exo.routing.router:run:148 ] [34m[1mStarting Router[0m
+[ 13:42:23.154 | [1mINFO    [0m | exo.shared.election:run:88 ] [1mStarting Election[0m
+[ 13:42:23.154 | [34m[1mDEBUG   [0m | exo.shared.election:run:97 ] [34m[1mStarting initial campaign[0m
+[ 13:42:23.154 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:215 ] [34m[1mElection 0 started[0m
+[ 13:42:23.154 | [1mINFO    [0m | exo.download.coordinator:run:62 ] [1mStarting DownloadCoordinator[0m
+[ 13:42:23.154 | [1mINFO    [0m | exo.worker.main:run:99 ] [1mStarting Worker[0m
+[ 13:42:23.154 | [1mINFO    [0m | exo.master.main:run:91 ] [1mStarting Master[0m
+[ 13:42:23.154 | [1mINFO    [0m | exo.master.api:run:1248 ] [1mStarting API[0m
+[ 13:42:23.154 | [34m[1mDEBUG   [0m | exo.routing.router:run:51 ] [34m[1mTopic Router TypedTopic(topic='global_events', publish_policy=<PublishPolicy.Always: 'Always'>, model_type=<class 'exo.shared.types.events.ForwarderEvent'>) ready to send[0m
+[ 13:42:23.154 | [34m[1mDEBUG   [0m | exo.routing.router:run:51 ] [34m[1mTopic Router TypedTopic(topic='local_events', publish_policy=<PublishPolicy.Always: 'Always'>, model_type=<class 'exo.shared.types.events.ForwarderEvent'>) ready to send[0m
+[ 13:42:23.154 | [34m[1mDEBUG   [0m | exo.routing.router:run:51 ] [34m[1mTopic Router TypedTopic(topic='commands', publish_policy=<PublishPolicy.Always: 'Always'>, model_type=<class 'exo.shared.types.commands.ForwarderCommand'>) ready to send[0m
+[ 13:42:23.155 | [34m[1mDEBUG   [0m | exo.routing.router:run:51 ] [34m[1mTopic Router TypedTopic(topic='election_messages', publish_policy=<PublishPolicy.Always: 'Always'>, model_type=<class 'exo.shared.election.ElectionMessage'>) ready to send[0m
+[ 13:42:23.155 | [34m[1mDEBUG   [0m | exo.routing.router:run:51 ] [34m[1mTopic Router TypedTopic(topic='connection_messages', publish_policy=<PublishPolicy.Never: 'Never'>, model_type=<class 'exo.routing.connection_message.ConnectionMessage'>) ready to send[0m
+[ 13:42:23.155 | [34m[1mDEBUG   [0m | exo.routing.router:run:51 ] [34m[1mTopic Router TypedTopic(topic='download_commands', publish_policy=<PublishPolicy.Always: 'Always'>, model_type=<class 'exo.shared.types.commands.ForwarderDownloadCommand'>) ready to send[0m
+[ 13:42:23.155 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:221 ] [34m[1mSleeping for 0.0 seconds[0m
+[ 13:42:23.155 | [1mINFO    [0m | exo.download.coordinator:_emit_existing_download_progress:244 ] [1mDownloadCoordinator: Fetching and emitting existing download progress...[0m
+[ 13:42:23.167 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:225 ] [34m[1mWoke up from sleep[0m
+[ 13:42:23.177 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:231 ] [34m[1mElection queue [ElectionMessage(clock=0, seniority=0, proposed_session=SessionId(master_node_id='12D3KooWPHFUBTjATb5xBcq38GSwj9cN9La75AeW9vhiqDJycZqa', election_clock=0), commands_seen=0)][0m
+[ 13:42:23.177 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:232 ] [34m[1mElected: clock=0 seniority=0 proposed_session=SessionId(master_node_id='12D3KooWPHFUBTjATb5xBcq38GSwj9cN9La75AeW9vhiqDJycZqa', election_clock=0) commands_seen=0[0m
+[ 13:42:23.177 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:237 ] [34m[1mNode is a candidate and seniority is 0[0m
+[ 13:42:23.177 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:241 ] [34m[1mNew seniority: 1[0m
+[ 13:42:23.177 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:246 ] [34m[1mElection finished, new SessionId(master_node_id='12D3KooWPHFUBTjATb5xBcq38GSwj9cN9La75AeW9vhiqDJycZqa' election_clock=0) with queue [ElectionMessage(clock=0, seniority=0, proposed_session=SessionId(master_node_id='12D3KooWPHFUBTjATb5xBcq38GSwj9cN9La75AeW9vhiqDJycZqa', election_clock=0), commands_seen=0)][0m
+[ 13:42:23.177 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:249 ] [34m[1mSending election result[0m
+[ 13:42:23.177 | [34m[1mDEBUG   [0m | exo.shared.election:elect:113 ] [34m[1mElecting: clock=0 seniority=0 proposed_session=SessionId(master_node_id='12D3KooWPHFUBTjATb5xBcq38GSwj9cN9La75AeW9vhiqDJycZqa', election_clock=0) commands_seen=0[0m
+[ 13:42:23.177 | [34m[1mDEBUG   [0m | exo.shared.election:elect:116 ] [34m[1mCurrent session: master_node_id='12D3KooWPHFUBTjATb5xBcq38GSwj9cN9La75AeW9vhiqDJycZqa' election_clock=0[0m
+[ 13:42:23.180 | [34m[1mDEBUG   [0m | exo.shared.election:_election_receiver:136 ] [34m[1mElection message received: clock=0 seniority=0 proposed_session=SessionId(master_node_id='12D3KooWPHFUBTjATb5xBcq38GSwj9cN9La75AeW9vhiqDJycZqa', election_clock=0) commands_seen=0[0m
+[ 13:42:23.180 | [34m[1mDEBUG   [0m | exo.shared.election:_election_receiver:138 ] [34m[1mDropping message from ourselves[0m
+[ 13:42:23.180 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:251 ] [34m[1mElection result sent[0m
+[ 13:42:23.180 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:255 ] [34m[1mElection 0 finally[0m
+[ 13:42:23.180 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:258 ] [34m[1mSetting done event[0m
+[ 13:42:23.180 | [34m[1mDEBUG   [0m | exo.shared.election:_campaign:260 ] [34m[1mDone event set[0m
+[ 13:42:23.180 | [34m[1mDEBUG   [0m | exo.shared.election:run:100 ] [34m[1mInitial campaign finished[0m
+[ 13:42:23.180 | [1mINFO    [0m | logging:handle:1681 ] [1mRunning on http://0.0.0.0:52415 (CTRL + C to quit)[0m
+[ 13:42:23.181 | [1mINFO    [0m | logging:handle:1681 ] [1mRunning on http://0.0.0.0:52415 (CTRL + C to quit)[0m
+[ 13:42:23.181 | [1mINFO    [0m | exo.main:_elect_loop:180 ] [1mNode elected Master[0m
+[ 13:42:23.181 | [1mINFO    [0m | exo.master.api:unpause:218 ] [1mUnpausing API[0m
+[ 13:42:23.184 | [34m[1mDEBUG   [0m | exo.shared.election:_election_receiver:136 ] [34m[1mElection message received: clock=0 seniority=0 proposed_session=SessionId(master_node_id='12D3KooWPHFUBTjATb5xBcq38GSwj9cN9La75AeW9vhiqDJycZqa', election_clock=0) commands_seen=0[0m
+[ 13:42:23.185 | [34m[1mDEBUG   [0m | exo.shared.election:_election_receiver:138 ] [34m[1mDropping message from ourselves[0m
+[ 13:42:23.215 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 0: NodeGatheredInfo(event_id='7c7a780c-16b9-4ba0-9158-e8f6cfa5eedb' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:23.221 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 1: NodeGatheredInfo(event_id='c6707588-c5aa-455c-9345-f81af9870749' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:23.223 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='7c7a780c-16b9-4ba0-9158-e8f6cfa5eedb' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:23.233 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 2: NodeGatheredInfo(event_id='60112375-aa13-4c3a-9528-073ddfadf53d' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:23.234 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='c6707588-c5aa-455c-9345-f81af9870749' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:23.244 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='60112375-aa13-4c3a-9528-073ddfadf53d' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:23.255 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 3: NodeGatheredInfo(event_id='fdc88c7f-4b2f-4de4-a16d-3573f667a9df' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:23.259 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='fdc88c7f-4b2f-4de4-a16d-3573f667a9df' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:23.280 | [31m[1mERROR   [0m | exo.download.impl_shard_downloader:get_shard_download_status:171 ] [31m[1mError downloading shard:[0m
+[ 13:42:23.283 | [31m[1mERROR   [0m | exo.download.impl_shard_downloader:get_shard_download_status:171 ] [31m[1mError downloading shard:[0m
+[ 13:42:23.284 | [31m[1mERROR   [0m | exo.download.impl_shard_downloader:get_shard_download_status:171 ] [31m[1mError downloading shard:[0m
+[ 13:42:23.302 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 4: NodeDownloadProgress(event_id='65bd14d9-e1a8-4c14-b11e-4c922279f292' download_progress=DownloadPendi[0m
+[ 13:42:23.304 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 5: NodeDownloadProgress(event_id='bf8ed7f8-4efc-44fc-9fd9-c37c750413ee' download_progress=DownloadPendi[0m
+[ 13:42:23.305 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='65bd14d9-e1a8-4c14-b11e-4c922279f292' download_progress=DownloadPendi[0m
+[ 13:42:23.306 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 6: NodeDownloadProgress(event_id='d460d8fe-67de-4571-a294-e33355c6e23f' download_progress=DownloadPendi[0m
+[ 13:42:23.306 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='bf8ed7f8-4efc-44fc-9fd9-c37c750413ee' download_progress=DownloadPendi[0m
+[ 13:42:23.307 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 7: NodeDownloadProgress(event_id='d9a10b9d-6350-4080-a61a-68005e1c65bd' download_progress=DownloadPendi[0m
+[ 13:42:23.308 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='d460d8fe-67de-4571-a294-e33355c6e23f' download_progress=DownloadPendi[0m
+[ 13:42:23.308 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 8: NodeDownloadProgress(event_id='3253d115-4577-4164-9292-e028e1aafa99' download_progress=DownloadPendi[0m
+[ 13:42:23.310 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='d9a10b9d-6350-4080-a61a-68005e1c65bd' download_progress=DownloadPendi[0m
+[ 13:42:23.311 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='3253d115-4577-4164-9292-e028e1aafa99' download_progress=DownloadPendi[0m
+[ 13:42:23.318 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 9: NodeDownloadProgress(event_id='a83c6010-7e3a-4130-a672-0e240dcfc2b7' download_progress=DownloadPendi[0m
+[ 13:42:23.319 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 10: NodeDownloadProgress(event_id='eb70b352-ee35-4806-97ee-ba257fec2add' download_progress=DownloadPendi[0m
+[ 13:42:23.320 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 11: NodeDownloadProgress(event_id='83028c96-935e-4c5f-b4e8-c07b54e67b34' download_progress=DownloadPendi[0m
+[ 13:42:23.321 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='a83c6010-7e3a-4130-a672-0e240dcfc2b7' download_progress=DownloadPendi[0m
+[ 13:42:23.321 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 12: NodeDownloadProgress(event_id='bfadca91-fb43-43ac-8538-9b58d09be1e4' download_progress=DownloadPendi[0m
+[ 13:42:23.322 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='eb70b352-ee35-4806-97ee-ba257fec2add' download_progress=DownloadPendi[0m
+[ 13:42:23.322 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 13: NodeDownloadProgress(event_id='65ab3686-331d-4012-8a4a-f4482aa1546f' download_progress=DownloadPendi[0m
+[ 13:42:23.323 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 14: NodeDownloadProgress(event_id='ed67b365-2b27-4a18-a6bc-e555589d15f8' download_progress=DownloadPendi[0m
+[ 13:42:23.323 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='83028c96-935e-4c5f-b4e8-c07b54e67b34' download_progress=DownloadPendi[0m
+[ 13:42:23.324 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 15: NodeDownloadProgress(event_id='812797fe-de43-4ecf-a73b-e2e8dbd23dbd' download_progress=DownloadPendi[0m
+[ 13:42:23.325 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='bfadca91-fb43-43ac-8538-9b58d09be1e4' download_progress=DownloadPendi[0m
+[ 13:42:23.325 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 16: NodeDownloadProgress(event_id='b9096769-ba9f-4882-91e8-82a4786143ee' download_progress=DownloadCompl[0m
+[ 13:42:23.326 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 17: NodeDownloadProgress(event_id='513d54e1-56b4-4778-a8cc-bc2ca855008b' download_progress=DownloadCompl[0m
+[ 13:42:23.326 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='65ab3686-331d-4012-8a4a-f4482aa1546f' download_progress=DownloadPendi[0m
+[ 13:42:23.326 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 18: NodeDownloadProgress(event_id='b4747f92-c91d-44fa-bae4-982f97744c36' download_progress=DownloadPendi[0m
+[ 13:42:23.327 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='ed67b365-2b27-4a18-a6bc-e555589d15f8' download_progress=DownloadPendi[0m
+[ 13:42:23.327 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 19: NodeDownloadProgress(event_id='67b4a97f-c727-4046-8831-0edcb35bd56b' download_progress=DownloadPendi[0m
+[ 13:42:23.328 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 20: NodeDownloadProgress(event_id='246749aa-6c1e-4cf1-9ccf-a0d9f0a68589' download_progress=DownloadPendi[0m
+[ 13:42:23.329 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='812797fe-de43-4ecf-a73b-e2e8dbd23dbd' download_progress=DownloadPendi[0m
+[ 13:42:23.330 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='b9096769-ba9f-4882-91e8-82a4786143ee' download_progress=DownloadCompl[0m
+[ 13:42:23.331 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 21: NodeDownloadProgress(event_id='404413bc-9672-48e1-bd7f-d1d6b6fcc7c8' download_progress=DownloadCompl[0m
+[ 13:42:23.332 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='513d54e1-56b4-4778-a8cc-bc2ca855008b' download_progress=DownloadCompl[0m
+[ 13:42:23.332 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 22: NodeDownloadProgress(event_id='76493c77-dc5a-43eb-a3ed-e54e047b0c7c' download_progress=DownloadCompl[0m
+[ 13:42:23.333 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='b4747f92-c91d-44fa-bae4-982f97744c36' download_progress=DownloadPendi[0m
+[ 13:42:23.333 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 23: NodeGatheredInfo(event_id='75e0a436-5b31-4d9a-90c0-bc324a11ace9' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:23.334 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 24: NodeGatheredInfo(event_id='e8e2c9a5-5f47-44e3-a81a-00ebead77fea' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:23.334 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='67b4a97f-c727-4046-8831-0edcb35bd56b' download_progress=DownloadPendi[0m
+[ 13:42:23.335 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='246749aa-6c1e-4cf1-9ccf-a0d9f0a68589' download_progress=DownloadPendi[0m
+[ 13:42:23.335 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='404413bc-9672-48e1-bd7f-d1d6b6fcc7c8' download_progress=DownloadCompl[0m
+[ 13:42:23.336 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='76493c77-dc5a-43eb-a3ed-e54e047b0c7c' download_progress=DownloadCompl[0m
+[ 13:42:23.337 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='75e0a436-5b31-4d9a-90c0-bc324a11ace9' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:23.338 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='e8e2c9a5-5f47-44e3-a81a-00ebead77fea' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:23.340 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 25: NodeDownloadProgress(event_id='8227922f-a4b1-4516-b286-77eefb7ca857' download_progress=DownloadPendi[0m
+[ 13:42:23.341 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='8227922f-a4b1-4516-b286-77eefb7ca857' download_progress=DownloadPendi[0m
+[ 13:42:23.343 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 26: NodeDownloadProgress(event_id='6992f9a7-e472-4909-b2ea-829132cd308f' download_progress=DownloadPendi[0m
+[ 13:42:23.345 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='6992f9a7-e472-4909-b2ea-829132cd308f' download_progress=DownloadPendi[0m
+[ 13:42:23.346 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 27: NodeDownloadProgress(event_id='6a25a67c-c66a-4684-a367-7a7ca344f774' download_progress=DownloadPendi[0m
+[ 13:42:23.347 | [31m[1mERROR   [0m | exo.download.impl_shard_downloader:get_shard_download_status:171 ] [31m[1mError downloading shard:[0m
+[ 13:42:23.347 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 28: NodeDownloadProgress(event_id='1dbb0092-af15-4bb3-a19b-39cde5e9b643' download_progress=DownloadCompl[0m
+[ 13:42:23.348 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='6a25a67c-c66a-4684-a367-7a7ca344f774' download_progress=DownloadPendi[0m
+[ 13:42:23.348 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='1dbb0092-af15-4bb3-a19b-39cde5e9b643' download_progress=DownloadCompl[0m
+[ 13:42:23.353 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 29: NodeDownloadProgress(event_id='45a8d718-7e9e-4686-b9fb-26e442b838fa' download_progress=DownloadPendi[0m
+[ 13:42:23.353 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='45a8d718-7e9e-4686-b9fb-26e442b838fa' download_progress=DownloadPendi[0m
+[ 13:42:23.357 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 30: NodeDownloadProgress(event_id='38c2207d-effd-4b41-adf6-085ecd07d3f5' download_progress=DownloadPendi[0m
+[ 13:42:23.358 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='38c2207d-effd-4b41-adf6-085ecd07d3f5' download_progress=DownloadPendi[0m
+[ 13:42:23.359 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 31: NodeDownloadProgress(event_id='379342cc-82ee-4e13-b61d-9834b60255bd' download_progress=DownloadPendi[0m
+[ 13:42:23.361 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='379342cc-82ee-4e13-b61d-9834b60255bd' download_progress=DownloadPendi[0m
+[ 13:42:23.362 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 32: NodeDownloadProgress(event_id='24d81831-2d57-433a-b78f-118a52e91afc' download_progress=DownloadCompl[0m
+[ 13:42:23.363 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 33: NodeDownloadProgress(event_id='04da7db9-ad8f-4051-970f-fa0fc07682b4' download_progress=DownloadCompl[0m
+[ 13:42:23.363 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='24d81831-2d57-433a-b78f-118a52e91afc' download_progress=DownloadCompl[0m
+[ 13:42:23.364 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='04da7db9-ad8f-4051-970f-fa0fc07682b4' download_progress=DownloadCompl[0m
+[ 13:42:23.369 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 34: NodeDownloadProgress(event_id='5721c124-ec80-4de2-9a86-72c7d0834e22' download_progress=DownloadCompl[0m
+[ 13:42:23.370 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='5721c124-ec80-4de2-9a86-72c7d0834e22' download_progress=DownloadCompl[0m
+[ 13:42:23.373 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 35: NodeDownloadProgress(event_id='9f81b829-fd2f-4b60-8e8b-49c3a10c7848' download_progress=DownloadPendi[0m
+[ 13:42:23.374 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='9f81b829-fd2f-4b60-8e8b-49c3a10c7848' download_progress=DownloadPendi[0m
+[ 13:42:23.374 | [31m[1mERROR   [0m | exo.download.impl_shard_downloader:get_shard_download_status:171 ] [31m[1mError downloading shard:[0m
+[ 13:42:23.381 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 36: NodeDownloadProgress(event_id='cf675910-9f93-441a-a747-04b976dba3ff' download_progress=DownloadPendi[0m
+[ 13:42:23.382 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 37: NodeDownloadProgress(event_id='cb40f3e0-60af-46dd-8f56-8123900b64f3' download_progress=DownloadPendi[0m
+[ 13:42:23.382 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='cf675910-9f93-441a-a747-04b976dba3ff' download_progress=DownloadPendi[0m
+[ 13:42:23.383 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='cb40f3e0-60af-46dd-8f56-8123900b64f3' download_progress=DownloadPendi[0m
+[ 13:42:23.386 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 38: NodeDownloadProgress(event_id='f35a4a92-013b-442f-926d-11644bf2b9ba' download_progress=DownloadPendi[0m
+[ 13:42:23.386 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='f35a4a92-013b-442f-926d-11644bf2b9ba' download_progress=DownloadPendi[0m
+[ 13:42:23.388 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 39: NodeDownloadProgress(event_id='11b8baff-1956-41ed-bfda-8cb59e9e5152' download_progress=DownloadPendi[0m
+[ 13:42:23.389 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='11b8baff-1956-41ed-bfda-8cb59e9e5152' download_progress=DownloadPendi[0m
+[ 13:42:23.397 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 40: NodeDownloadProgress(event_id='8a89b149-7146-4f92-8765-c2d5a59dc887' download_progress=DownloadPendi[0m
+[ 13:42:23.397 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='8a89b149-7146-4f92-8765-c2d5a59dc887' download_progress=DownloadPendi[0m
+[ 13:42:23.406 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 41: NodeGatheredInfo(event_id='e12f7929-8174-4135-b520-9f8b1994ea9c' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:23.406 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='e12f7929-8174-4135-b520-9f8b1994ea9c' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:23.408 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 42: NodeDownloadProgress(event_id='6ba299e8-42db-4d00-9ffc-f793db014143' download_progress=DownloadPendi[0m
+[ 13:42:23.409 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='6ba299e8-42db-4d00-9ffc-f793db014143' download_progress=DownloadPendi[0m
+[ 13:42:23.410 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 43: NodeDownloadProgress(event_id='0d846474-caa5-4a88-acf3-cb59410efebf' download_progress=DownloadPendi[0m
+[ 13:42:23.410 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='0d846474-caa5-4a88-acf3-cb59410efebf' download_progress=DownloadPendi[0m
+[ 13:42:23.423 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 44: NodeDownloadProgress(event_id='3b07dea0-9f5c-4b1e-83af-fe35c6a41c3a' download_progress=DownloadPendi[0m
+[ 13:42:23.423 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='3b07dea0-9f5c-4b1e-83af-fe35c6a41c3a' download_progress=DownloadPendi[0m
+[ 13:42:23.432 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 45: NodeDownloadProgress(event_id='59b4ac86-5031-4fbf-9fe1-88400a74ead8' download_progress=DownloadPendi[0m
+[ 13:42:23.433 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='59b4ac86-5031-4fbf-9fe1-88400a74ead8' download_progress=DownloadPendi[0m
+[ 13:42:23.435 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 46: NodeDownloadProgress(event_id='49aca34b-23ac-4900-a770-d380cc762863' download_progress=DownloadPendi[0m
+[ 13:42:23.435 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='49aca34b-23ac-4900-a770-d380cc762863' download_progress=DownloadPendi[0m
+[ 13:42:23.436 | [1mINFO    [0m | exo.download.coordinator:_emit_existing_download_progress:277 ] [1mDownloadCoordinator: Done emitting existing download progress.[0m
+[ 13:42:23.436 | [34m[1mDEBUG   [0m | exo.download.coordinator:_forward_events:236 ] [34m[1mDownloadCoordinator published event 47: NodeDownloadProgress(event_id='5d8c5e01-c1a7-46b0-9e80-7452b0864fd1' download_progress=DownloadPendi[0m
+[ 13:42:23.437 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeDownloadProgress(event_id='5d8c5e01-c1a7-46b0-9e80-7452b0864fd1' download_progress=DownloadPendi[0m
+[ 13:42:27.176 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 48: NodeGatheredInfo(event_id='b49a3796-21a7-4995-8734-26f430dd43b2' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:27.179 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='b49a3796-21a7-4995-8734-26f430dd43b2' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:28.314 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 49: NodeGatheredInfo(event_id='c6b04d14-6e0e-4b9e-aa0a-2002a6477f03' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:28.316 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='c6b04d14-6e0e-4b9e-aa0a-2002a6477f03' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:28.437 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 50: NodeGatheredInfo(event_id='2f8bc90d-abb8-4533-bff2-d729d4967d32' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:28.438 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='2f8bc90d-abb8-4533-bff2-d729d4967d32' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:29.470 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 51: NodeGatheredInfo(event_id='98e307d1-9c7c-4c87-92dd-daa307d30919' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:29.471 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='98e307d1-9c7c-4c87-92dd-daa307d30919' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:30.630 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 52: NodeGatheredInfo(event_id='be3e410b-521d-4d57-b8d4-fa088329fa24' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:30.631 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='be3e410b-521d-4d57-b8d4-fa088329fa24' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:31.789 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 53: NodeGatheredInfo(event_id='e70132a7-6d35-4301-a97b-114753dbf45b' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:31.790 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='e70132a7-6d35-4301-a97b-114753dbf45b' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:32.937 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 54: NodeGatheredInfo(event_id='be4bafcc-dfd5-4396-af86-56fe23685fb9' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:32.938 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='be4bafcc-dfd5-4396-af86-56fe23685fb9' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:33.546 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 55: NodeGatheredInfo(event_id='21f3be6e-3990-4084-aeb2-b79b3d674688' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:33.547 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='21f3be6e-3990-4084-aeb2-b79b3d674688' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:34.050 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 56: NodeGatheredInfo(event_id='edcfdec9-b019-490d-bcbe-ceb348e6b3ef' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:34.051 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='edcfdec9-b019-490d-bcbe-ceb348e6b3ef' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:35.223 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 57: NodeGatheredInfo(event_id='73e0cc8f-45cc-4147-80ee-854c27a14b50' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:35.225 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='73e0cc8f-45cc-4147-80ee-854c27a14b50' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:36.377 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 58: NodeGatheredInfo(event_id='8aba9aff-d360-4bc6-bf45-80e9907079db' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:36.378 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='8aba9aff-d360-4bc6-bf45-80e9907079db' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:37.527 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 59: NodeGatheredInfo(event_id='e8e654c3-2731-4e88-8878-7c2b3c7012f5' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:37.528 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='e8e654c3-2731-4e88-8878-7c2b3c7012f5' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:38.669 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 60: NodeGatheredInfo(event_id='2f3170e6-963d-4acd-ab16-dc88986e0bf0' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:38.670 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='2f3170e6-963d-4acd-ab16-dc88986e0bf0' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:38.737 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 61: NodeGatheredInfo(event_id='d210d521-8bcd-4382-9392-8fd5a3b47fd5' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:38.737 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='d210d521-8bcd-4382-9392-8fd5a3b47fd5' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:39.835 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 62: NodeGatheredInfo(event_id='435e3567-2fc0-465f-98a1-74ef542c6f99' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:39.836 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='435e3567-2fc0-465f-98a1-74ef542c6f99' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:41.004 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 63: NodeGatheredInfo(event_id='996ccbd3-61a0-44d9-b208-3b76e0027a91' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:41.005 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='996ccbd3-61a0-44d9-b208-3b76e0027a91' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:42.145 | [34m[1mDEBUG   [0m | exo.worker.main:_forward_events:376 ] [34m[1mWorker published event 64: NodeGatheredInfo(event_id='b5ac3a25-91ee-48a8-9c96-b48d54fd15c0' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:42.147 | [34m[1mDEBUG   [0m | exo.master.main:_event_processor:338 ] [34m[1mMaster indexing event: NodeGatheredInfo(event_id='b5ac3a25-91ee-48a8-9c96-b48d54fd15c0' node_id='12D3KooWPHFUBTjATb5xBcq38G[0m
+[ 13:42:43.099 | [31m[1mERROR   [0m | logging:handle:1681 ] [31m[1munhandled exception during asyncio.run() shutdown
+task: <Task finished name='Task-5' coro=<Lifespan.handle_lifespan() done, defined at /Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/hypercorn/asyncio/lifespan.py:43> exception=LifespanFailureError('Lifespan failure in shutdown. \'Traceback (most recent call last):\n  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/starlette/routing.py", line 701, in lifespan\n    await receive()\n  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/hypercorn/asyncio/lifespan.py", line 109, in asgi_receive\n    return await self.app_queue.get()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/Users/jasonschulz/.local/share/uv/python/cpython-3.13.11-macos-aarch64-none/lib/python3.13/asyncio/queues.py", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n\'')>[0m
+[33m[1mTraceback (most recent call last):[0m
+
+  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/starlette/routing.py", line 701, in lifespan
+    await receive()
+          └ <bound method Lifespan.asgi_receive of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/hypercorn/asyncio/lifespan.py", line 109, in asgi_receive
+    return await self.app_queue.get()
+                 │    │         └ <function Queue.get at 0x1054bc400>
+                 │    └ <Queue at 0x10d42e7b0 maxsize=10 tasks=1>
+                 └ <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>
+  File "/Users/jasonschulz/.local/share/uv/python/cpython-3.13.11-macos-aarch64-none/lib/python3.13/asyncio/queues.py", line 186, in get
+    await getter
+          └ <Future cancelled>
+
+[31m[1masyncio.exceptions.CancelledError[0m
+
+
+[1mDuring handling of the above exception, another exception occurred:[0m
+
+
+[33m[1mTraceback (most recent call last):[0m
+
+  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/bin/exo", line 10, in <module>
+    sys.exit(main())
+    │   │    └ <function main at 0x104e45ee0>
+    │   └ <built-in function exit>
+    └ <module 'sys' (built-in)>
+
+  File "[32m/Users/jasonschulz/Developer/Tools/exo-iterations/exo/src/exo/[0m[32m[1mmain.py[0m", line [33m271[0m, in [35mmain[0m
+    [1manyio[0m[35m[1m.[0m[1mrun[0m[1m([0m[1mnode[0m[35m[1m.[0m[1mrun[0m[1m)[0m
+    [36m│     │   │    └ [0m[36m[1m<function Node.run at 0x10d2daac0>[0m
+    [36m│     │   └ [0m[36m[1mNode(router=<exo.routing.router.Router object at 0x10d2923c0>, download_coordinator=DownloadCoordinator(node_id='12D3KooWPHFU...[0m
+    [36m│     └ [0m[36m[1m<function run at 0x105146b60>[0m
+    [36m└ [0m[36m[1m<module 'anyio' from '/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/anyio/__init__...[0m
+
+  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/anyio/_core/_eventloop.py", line 74, in run
+    return async_backend.run(func, args, {}, backend_options)
+           │             │   │     │         └ {}
+           │             │   │     └ ()
+           │             │   └ <bound method Node.run of Node(router=<exo.routing.router.Router object at 0x10d2923c0>, download_coordinator=DownloadCoordin...
+           │             └ <classmethod(<function AsyncIOBackend.run at 0x10d39d580>)>
+           └ <class 'anyio._backends._asyncio.AsyncIOBackend'>
+  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/anyio/_backends/_asyncio.py", line 2324, in run
+    with Runner(debug=debug, loop_factory=loop_factory) as runner:
+         │            │                   │                └ <asyncio.runners.Runner object at 0x10d4e1950>
+         │            │                   └ None
+         │            └ None
+         └ <class 'asyncio.runners.Runner'>
+  File "/Users/jasonschulz/.local/share/uv/python/cpython-3.13.11-macos-aarch64-none/lib/python3.13/asyncio/runners.py", line 62, in __exit__
+    self.close()
+    │    └ <function Runner.close at 0x1054ccd60>
+    └ <asyncio.runners.Runner object at 0x10d4e1950>
+  File "/Users/jasonschulz/.local/share/uv/python/cpython-3.13.11-macos-aarch64-none/lib/python3.13/asyncio/runners.py", line 70, in close
+    _cancel_all_tasks(loop)
+    │                 └ <_UnixSelectorEventLoop running=False closed=False debug=False>
+    └ <function _cancel_all_tasks at 0x1054cd080>
+  File "/Users/jasonschulz/.local/share/uv/python/cpython-3.13.11-macos-aarch64-none/lib/python3.13/asyncio/runners.py", line 212, in _cancel_all_tasks
+    loop.call_exception_handler({
+    │    └ <function BaseEventLoop.call_exception_handler at 0x1054cc2c0>
+    └ <_UnixSelectorEventLoop running=False closed=False debug=False>
+  File "/Users/jasonschulz/.local/share/uv/python/cpython-3.13.11-macos-aarch64-none/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           │      └ <method 'result' of '_asyncio.Future' objects>
+           └ <_GatheringFuture finished result=[LifespanFailu...ledError\n\'')]>
+  File "/Users/jasonschulz/.local/share/uv/python/cpython-3.13.11-macos-aarch64-none/lib/python3.13/asyncio/base_events.py", line 687, in run_forever
+    self._run_forever_cleanup()
+    │    └ <function BaseEventLoop._run_forever_cleanup at 0x1054c6660>
+    └ <_UnixSelectorEventLoop running=False closed=False debug=False>
+  File "/Users/jasonschulz/.local/share/uv/python/cpython-3.13.11-macos-aarch64-none/lib/python3.13/asyncio/base_events.py", line 2051, in _run_once
+    handle = None  # Needed to break cycles when an exception occurs.
+  File "/Users/jasonschulz/.local/share/uv/python/cpython-3.13.11-macos-aarch64-none/lib/python3.13/asyncio/events.py", line 105, in _run
+    self = None  # Needed to break cycles when an exception occurs.
+> File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/hypercorn/asyncio/lifespan.py", line 56, in handle_lifespan
+    await self.app(
+          │    └ <hypercorn.app_wrappers.ASGIWrapper object at 0x10d291e80>
+          └ <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>
+  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/hypercorn/app_wrappers.py", line 34, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <bound method Lifespan.asgi_send of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+          │    │   │      └ <bound method Lifespan.asgi_receive of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+          │    │   └ {'type': 'lifespan', 'asgi': {'spec_version': '2.0', 'version': '3.0'}, 'state': {}, 'app': <fastapi.applications.FastAPI obj...
+          │    └ <fastapi.applications.FastAPI object at 0x10d355550>
+          └ <hypercorn.app_wrappers.ASGIWrapper object at 0x10d291e80>
+  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/fastapi/applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+                           │      │        └ <bound method Lifespan.asgi_send of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+                           │      └ <bound method Lifespan.asgi_receive of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+                           └ {'type': 'lifespan', 'asgi': {'spec_version': '2.0', 'version': '3.0'}, 'state': {}, 'app': <fastapi.applications.FastAPI obj...
+  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method Lifespan.asgi_send of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+          │    │                │      └ <bound method Lifespan.asgi_receive of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+          │    │                └ {'type': 'lifespan', 'asgi': {'spec_version': '2.0', 'version': '3.0'}, 'state': {}, 'app': <fastapi.applications.FastAPI obj...
+          │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x10d42fcb0>
+          └ <fastapi.applications.FastAPI object at 0x10d355550>
+  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/starlette/middleware/errors.py", line 151, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <bound method Lifespan.asgi_send of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+          │    │   │      └ <bound method Lifespan.asgi_receive of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+          │    │   └ {'type': 'lifespan', 'asgi': {'spec_version': '2.0', 'version': '3.0'}, 'state': {}, 'app': <fastapi.applications.FastAPI obj...
+          │    └ <starlette.middleware.cors.CORSMiddleware object at 0x10d42fb60>
+          └ <starlette.middleware.errors.ServerErrorMiddleware object at 0x10d42fcb0>
+  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/starlette/middleware/cors.py", line 77, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <bound method Lifespan.asgi_send of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+          │    │   │      └ <bound method Lifespan.asgi_receive of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+          │    │   └ {'type': 'lifespan', 'asgi': {'spec_version': '2.0', 'version': '3.0'}, 'state': {}, 'app': <fastapi.applications.FastAPI obj...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x10d42f8c0>
+          └ <starlette.middleware.cors.CORSMiddleware object at 0x10d42fb60>
+  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/starlette/middleware/exceptions.py", line 49, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <bound method Lifespan.asgi_send of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+          │    │   │      └ <bound method Lifespan.asgi_receive of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+          │    │   └ {'type': 'lifespan', 'asgi': {'spec_version': '2.0', 'version': '3.0'}, 'state': {}, 'app': <fastapi.applications.FastAPI obj...
+          │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x10d42f770>
+          └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x10d42f8c0>
+  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <bound method Lifespan.asgi_send of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+          │    │   │      └ <bound method Lifespan.asgi_receive of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+          │    │   └ {'type': 'lifespan', 'asgi': {'spec_version': '2.0', 'version': '3.0'}, 'state': {}, 'app': <fastapi.applications.FastAPI obj...
+          │    └ <fastapi.routing.APIRouter object at 0x10d318410>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x10d42f770>
+  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <bound method Lifespan.asgi_send of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+          │    │                │      └ <bound method Lifespan.asgi_receive of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+          │    │                └ {'type': 'lifespan', 'asgi': {'spec_version': '2.0', 'version': '3.0'}, 'state': {}, 'app': <fastapi.applications.FastAPI obj...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x10d318410>>
+          └ <fastapi.routing.APIRouter object at 0x10d318410>
+  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/starlette/routing.py", line 725, in app
+    await self.lifespan(scope, receive, send)
+          │    │        │      │        └ <bound method Lifespan.asgi_send of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+          │    │        │      └ <bound method Lifespan.asgi_receive of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+          │    │        └ {'type': 'lifespan', 'asgi': {'spec_version': '2.0', 'version': '3.0'}, 'state': {}, 'app': <fastapi.applications.FastAPI obj...
+          │    └ <function Router.lifespan at 0x10c39e2a0>
+          └ <fastapi.routing.APIRouter object at 0x10d318410>
+  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/starlette/routing.py", line 705, in lifespan
+    await send({"type": "lifespan.shutdown.failed", "message": exc_text})
+          │                                                    └ 'Traceback (most recent call last):\n  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-...
+          └ <bound method Lifespan.asgi_send of <hypercorn.asyncio.lifespan.Lifespan object at 0x10d292270>>
+  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/hypercorn/asyncio/lifespan.py", line 121, in asgi_send
+    raise LifespanFailureError("shutdown", message.get("message", ""))
+          │                                │       └ <method 'get' of 'dict' objects>
+          │                                └ {'type': 'lifespan.shutdown.failed', 'message': 'Traceback (most recent call last):\n  File "/Users/jasonschulz/Developer/Too...
+          └ <class 'hypercorn.utils.LifespanFailureError'>
+
+[31m[1mhypercorn.utils.LifespanFailureError[0m:[1m Lifespan failure in shutdown. 'Traceback (most recent call last):
+  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/starlette/routing.py", line 701, in lifespan
+    await receive()
+  File "/Users/jasonschulz/Developer/Tools/exo-iterations/exo/.venv/lib/python3.13/site-packages/hypercorn/asyncio/lifespan.py", line 109, in asgi_receive
+    return await self.app_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jasonschulz/.local/share/uv/python/cpython-3.13.11-macos-aarch64-none/lib/python3.13/asyncio/queues.py", line 186, in get
+    await getter
+asyncio.exceptions.CancelledError
+'[0m
+[ 13:42:43.118 | [1mINFO    [0m | exo.main:main:272 ] [1mEXO Shutdown complete[0m
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                                                                       ║
+║   ███████╗██╗  ██╗ ██████╗                                            ║
+║   ██╔════╝╚██╗██╔╝██╔═══██╗                                           ║
+║   █████╗   ╚███╔╝ ██║   ██║                                           ║
+║   ██╔══╝   ██╔██╗ ██║   ██║                                           ║
+║   ███████╗██╔╝ ██╗╚██████╔╝                                           ║
+║   ╚══════╝╚═╝  ╚═╝ ╚═════╝                                            ║
+║                                                                       ║
+║   Distributed AI Inference Cluster                                    ║
+║                                                                       ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                                                                       ║
+║  🌐 Dashboard & API Ready                                             ║
+║                                                                       ║
+║  http://localhost:52415                                               ║
+║                                                                       ║
+║  Click the URL above to open the dashboard in your browser            ║
+║                                                                       ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+
+
+thread 'tokio-runtime-worker' (15018) panicked at /Users/jasonschulz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-0.27.2/src/interpreter_lifecycle.rs:117:13:
+assertion `left != right` failed: The Python interpreter is not initialized and the `auto-initialize` feature is not enabled.
+
+Consider calling `Python::initialize()` before attempting to use Python APIs.
+  left: 0
+ right: 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'tokio-runtime-worker' (15018) panicked at /Users/jasonschulz/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-0.27.2/src/interpreter_lifecycle.rs:117:13:
+assertion `left != right` failed: The Python interpreter is not initialized and the `auto-initialize` feature is not enabled.
+
+Consider calling `Python::initialize()` before attempting to use Python APIs.
+  left: 0
+ right: 0
+stack backtrace:
+   0:        0x10ba78998 - <<std[3792e1592c6e09a0]::sys::backtrace::BacktraceLock>::print::DisplayBacktrace as core[42fb634d6afb2532]::fmt::Display>::fmt
+   1:        0x10ba8ade4 - core[42fb634d6afb2532]::fmt::write
+   2:        0x10ba7c420 - <std[3792e1592c6e09a0]::sys::stdio::unix::Stderr as std[3792e1592c6e09a0]::io::Write>::write_fmt
+   3:        0x10ba65a64 - std[3792e1592c6e09a0]::panicking::default_hook::{closure#0}
+   4:        0x10ba72c30 - std[3792e1592c6e09a0]::panicking::default_hook
+   5:        0x10ba72f58 - std[3792e1592c6e09a0]::panicking::panic_with_hook
+   6:        0x10ba65b10 - std[3792e1592c6e09a0]::panicking::panic_handler::{closure#0}
+   7:        0x10ba5b704 - std[3792e1592c6e09a0]::sys::backtrace::__rust_end_short_backtrace::<std[3792e1592c6e09a0]::panicking::panic_handler::{closure#0}, !>
+   8:        0x10ba66118 - __rustc[27b7156953f65f57]::rust_begin_unwind
+   9:        0x10bab7128 - core[42fb634d6afb2532]::panicking::panic_fmt
+  10:        0x10bab70b4 - core[42fb634d6afb2532]::panicking::assert_failed_inner
+  11:        0x10bab579c - core[42fb634d6afb2532]::panicking::assert_failed::<i32, i32>
+  12:        0x10ba4f1fc - <std[3792e1592c6e09a0]::sync::once::Once>::call_once_force::<pyo3[e9b54613349630ae]::interpreter_lifecycle::ensure_initialized::{closure#0}>::{closure#0}
+  13:        0x10bab5c20 - <std[3792e1592c6e09a0]::sys::sync::once::queue::Once>::call
+  14:        0x10ba502ec - pyo3[e9b54613349630ae]::interpreter_lifecycle::ensure_initialized
+  15:        0x10ba53054 - <pyo3[e9b54613349630ae]::internal::state::AttachGuard>::attach
+  16:        0x10ba51fc0 - <pyo3[e9b54613349630ae]::coroutine::waker::AsyncioWaker as alloc[57e53cd7c195233f]::task::Wake>::wake_by_ref
+  17:        0x10ba4f134 - alloc[57e53cd7c195233f]::task::raw_waker::wake::<pyo3[e9b54613349630ae]::coroutine::waker::AsyncioWaker>
+  18:        0x10b85d9dc - core[42fb634d6afb2532]::ptr::drop_in_place::<tokio[da5b9a185bbc4692]::sync::mpsc::bounded::Sender<exo_pyo3_bindings[f27e90800538da18]::networking::PyConnectionUpdate>>
+  19:        0x10b862788 - <exo_pyo3_bindings[f27e90800538da18]::networking::PyNetworkingHandle>::py_new::{closure#1}
+  20:        0x10b863e74 - <tokio[da5b9a185bbc4692]::runtime::task::core::Core<<exo_pyo3_bindings[f27e90800538da18]::networking::PyNetworkingHandle>::py_new::{closure#1}, alloc[57e53cd7c195233f]::sync::Arc<tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::handle::Handle>>>::poll
+  21:        0x10b7ef588 - <tokio[da5b9a185bbc4692]::runtime::task::harness::Harness<<exo_pyo3_bindings[f27e90800538da18]::networking::PyNetworkingHandle>::py_new::{closure#1}, alloc[57e53cd7c195233f]::sync::Arc<tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::handle::Handle>>>::poll
+  22:        0x10ba34734 - <tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::worker::Context>::run_task
+  23:        0x10ba33d58 - <tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::worker::Context>::run
+  24:        0x10ba1f300 - <tokio[da5b9a185bbc4692]::runtime::context::scoped::Scoped<tokio[da5b9a185bbc4692]::runtime::scheduler::Context>>::set::<tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::worker::run::{closure#0}::{closure#0}, ()>
+  25:        0x10ba21004 - tokio[da5b9a185bbc4692]::runtime::context::runtime::enter_runtime::<tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::worker::run::{closure#0}, ()>
+  26:        0x10ba34ad0 - tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::worker::run
+  27:        0x10ba2ba5c - <tokio[da5b9a185bbc4692]::runtime::blocking::task::BlockingTask<<tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::worker::Launch>::launch::{closure#0}> as core[42fb634d6afb2532]::future::future::Future>::poll
+  28:        0x10ba38ca0 - <tokio[da5b9a185bbc4692]::runtime::task::core::Core<tokio[da5b9a185bbc4692]::runtime::blocking::task::BlockingTask<<tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::worker::Launch>::launch::{closure#0}>, tokio[da5b9a185bbc4692]::runtime::blocking::schedule::BlockingSchedule>>::poll
+  29:        0x10ba1eb58 - <tokio[da5b9a185bbc4692]::runtime::task::harness::Harness<tokio[da5b9a185bbc4692]::runtime::blocking::task::BlockingTask<<tokio[da5b9a185bbc4692]::runtime::scheduler::multi_thread::worker::Launch>::launch::{closure#0}>, tokio[da5b9a185bbc4692]::runtime::blocking::schedule::BlockingSchedule>>::poll
+  30:        0x10ba2d1d4 - <tokio[da5b9a185bbc4692]::runtime::blocking::pool::Inner>::run
+  31:        0x10ba305d0 - std[3792e1592c6e09a0]::sys::backtrace::__rust_begin_short_backtrace::<<tokio[da5b9a185bbc4692]::runtime::blocking::pool::Spawner>::spawn_thread::{closure#0}, ()>
+  32:        0x10ba28240 - <std[3792e1592c6e09a0]::thread::lifecycle::spawn_unchecked<<tokio[da5b9a185bbc4692]::runtime::blocking::pool::Spawner>::spawn_thread::{closure#0}, ()>::{closure#1} as core[42fb634d6afb2532]::ops::function::FnOnce<()>>::call_once::{shim:vtable#0}
+  33:        0x10ba782f8 - <std[3792e1592c6e09a0]::sys::thread::unix::Thread>::new::thread_start
+  34:        0x19479ac08 - __pthread_cond_wait
+
+thread 'tokio-runtime-worker' (15018) panicked at /rustc/5c49c4f7c8393c861b849441d27f5d40e0f1e33b/library/core/src/panicking.rs:233:5:
+panic in a destructor during cleanup
+thread caused non-unwinding panic. aborting.

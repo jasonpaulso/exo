@@ -74,7 +74,10 @@ class RunnerSupervisor:
                 task_recv,
                 logger,
             ),
-            daemon=True,
+            # daemon=False so processes get graceful shutdown instead of being killed.
+            # This allows MLX to properly release GPU memory and semaphores to be cleaned up.
+            # The cleanup in run() handles shutdown with timeouts (join -> terminate -> kill).
+            daemon=False,
         )
 
         shard_metadata = bound_instance.bound_shard
