@@ -6,6 +6,7 @@
     ChatSidebar,
     ModelCard,
   } from "$lib/components";
+  import * as Accordion from "$lib/components/ui/accordion";
   import {
     hasStartedChat,
     isTopologyMinimized,
@@ -91,6 +92,9 @@
   }
 
   let mounted = $state(false);
+
+  // Sidebar accordion state - controls which panels are expanded
+  let sidebarAccordionValue = $state<string[]>(["instances", "models"]);
 
   // Instance launch state
   let models = $state<
@@ -1907,31 +1911,37 @@
 
         <!-- Right Sidebar: Instance Controls (wider on welcome page for better visibility) -->
         <aside
-          class="w-80 border-l border-exo-yellow/10 bg-exo-dark-gray flex flex-col flex-shrink-0"
+          class="w-80 border-l border-exo-yellow/10 bg-exo-dark-gray flex flex-col flex-shrink-0 overflow-y-auto"
         >
-          <!-- Running Instances Panel (only shown when instances exist) - Scrollable -->
-          {#if instanceCount > 0}
-            <div class="p-4 flex-shrink-0">
-              <!-- Panel Header -->
-              <div class="flex items-center gap-2 mb-4">
-                <div
-                  class="w-2 h-2 bg-exo-yellow rounded-full shadow-[0_0_8px_rgba(255,215,0,0.6)] animate-pulse"
-                ></div>
-                <h3
-                  class="text-xs text-exo-yellow font-mono tracking-[0.2em] uppercase"
-                >
-                  Instances
-                </h3>
-                <div
-                  class="flex-1 h-px bg-gradient-to-r from-exo-yellow/30 to-transparent"
-                ></div>
-              </div>
-
-              <div
-                bind:this={instancesContainerRef}
-                class="max-h-72 xl:max-h-96 space-y-3 overflow-y-auto overflow-x-hidden py-px"
-              >
-                {#each Object.entries(instanceData) as [id, instance]}
+          <Accordion.Root type="multiple" bind:value={sidebarAccordionValue} class="p-4">
+            <!-- Running Instances Panel -->
+            <Accordion.Item value="instances">
+              <Accordion.Trigger>
+                <div class="flex items-center gap-2 w-full">
+                  {#if instanceCount > 0}
+                    <div
+                      class="w-2 h-2 bg-exo-yellow rounded-full shadow-[0_0_8px_rgba(255,215,0,0.6)] animate-pulse"
+                    ></div>
+                  {:else}
+                    <div
+                      class="w-2 h-2 border border-exo-yellow/40 rounded-full"
+                    ></div>
+                  {/if}
+                  <span>Instances</span>
+                  {#if instanceCount > 0}
+                    <span class="text-xs text-white/50 font-mono ml-auto pr-2"
+                      >{instanceCount} running</span
+                    >
+                  {/if}
+                </div>
+              </Accordion.Trigger>
+              <Accordion.Content>
+                {#if instanceCount > 0}
+                  <div
+                    bind:this={instancesContainerRef}
+                    class="max-h-72 xl:max-h-96 space-y-3 overflow-y-auto overflow-x-hidden py-px"
+                  >
+                    {#each Object.entries(instanceData) as [id, instance]}
                   {@const downloadInfo = getInstanceDownloadStatus(
                     id,
                     instance,
@@ -2337,30 +2347,29 @@
                       </div>
                     </div>
                   </div>
-                {/each}
-              </div>
-            </div>
-          {/if}
+                    {/each}
+                  </div>
+                {:else}
+                  <div class="py-4 text-center">
+                    <p class="text-xs text-white/40 font-mono">Instances will appear here</p>
+                  </div>
+                {/if}
+              </Accordion.Content>
+            </Accordion.Item>
 
-          <!-- Models Panel - Scrollable -->
-          <div class="p-4 flex-1 overflow-y-auto">
-            <!-- Panel Header -->
-            <div class="flex items-center gap-2 mb-3 flex-shrink-0">
-              <div class="w-2 h-2 border border-exo-yellow/60 rotate-45"></div>
-              <h3
-                class="text-xs text-exo-yellow font-mono tracking-[0.2em] uppercase"
-              >
-                Launch Instance
-              </h3>
-              <div
-                class="flex-1 h-px bg-gradient-to-r from-exo-yellow/30 to-transparent"
-              ></div>
-              <span class="text-sm text-white/70 font-mono"
-                >{models.length} models</span
-              >
-            </div>
-
-            <!-- Model Dropdown (Custom) -->
+            <!-- Models Panel -->
+            <Accordion.Item value="models">
+              <Accordion.Trigger>
+                <div class="flex items-center gap-2 w-full">
+                  <div class="w-2 h-2 border border-exo-yellow/60 rotate-45"></div>
+                  <span>Launch Instance</span>
+                  <span class="text-xs text-white/50 font-mono ml-auto pr-2"
+                    >{models.length} models</span
+                  >
+                </div>
+              </Accordion.Trigger>
+              <Accordion.Content class="overflow-visible">
+                <!-- Model Dropdown (Custom) -->
             <div class="flex-shrink-0 mb-3 relative">
               <button
                 type="button"
@@ -2813,7 +2822,9 @@
                 {/if}
               {/if}
             </div>
-          </div>
+              </Accordion.Content>
+            </Accordion.Item>
+          </Accordion.Root>
         </aside>
       </div>
     {:else}
