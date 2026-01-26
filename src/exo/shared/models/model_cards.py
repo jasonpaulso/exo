@@ -206,6 +206,15 @@ MODEL_CARDS: dict[str, ModelCard] = {
         supports_tensor=True,
         tasks=[ModelTask.TextGeneration],
     ),
+     # sweepai
+    "Sweep-next-edit-1.5B:Q8_0": ModelCard(
+        model_id=ModelId("sweepai/sweep-next-edit-1.5B:Q8_0"),
+        storage_size=Memory.from_mb(1540),
+        n_layers=28,
+        hidden_size=1024,
+        supports_tensor=False,
+        tasks=[ModelTask.TextGeneration],
+    ),
     # qwen2.5
     "Qwen2.5-Coder-0.5B-Instruct-4bit": ModelCard(
         model_id=ModelId("mlx-community/Qwen2.5-Coder-0.5B-Instruct-4bit"),
