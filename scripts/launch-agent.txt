@@ -1,0 +1,16 @@
+Run this
+
+! bash /Users/jasonschulz/Repos/exo/scripts/install-exo-launchagent.sh
+
+That single command writes the plist to ~/Library/LaunchAgents/io.exo.dev.plist, lints it, bootstraps it into your GUI session, waits 3s, prints status + log tails, and then verifies the API is responding.
+
+Then for day-to-day
+
+bash /Users/jasonschulz/Repos/exo/scripts/exo-service.sh status      # is it running?
+bash /Users/jasonschulz/Repos/exo/scripts/exo-service.sh logs        # tail both stdout+stderr
+bash /Users/jasonschulz/Repos/exo/scripts/exo-service.sh restart     # after a code change
+bash /Users/jasonschulz/Repos/exo/scripts/exo-service.sh stop        # take it down
+
+Tip: chmod +x scripts/*.sh once and drop the leading bash. Even better — symlink it to your PATH:
+mkdir -p ~/.local/bin && ln -sf /Users/jasonschulz/Repos/exo/scripts/exo-service.sh ~/.local/bin/exo-service
+Then it's just exo-service status.
