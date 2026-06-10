@@ -229,3 +229,36 @@ def test_topology_remove_all_rdma_connections_touching_keeps_socket_edges():
         isinstance(edge, SocketConnection)
         for edge in topology.get_all_connections_between(node_a, node_b)
     )
+
+
+def test_mac_thunderbolt_connections_skips_rdma_for_hub_mediated_links():
+    """RDMA over Thunderbolt is point-to-point (Apple TN3205): a queue pair
+    cannot reach RTR across a hub, and a hub rail in the device matrix poisons
+    jaccl init for the whole rank. Hub-mediated connections stay discoverable
+    but must never become RDMA edges."""
+    node_a = NodeId()
+    node_b = NodeId()
+    state = _make_state_with_thunderbolt_idents(
+        (node_a, "uuid-a", "rdma_en1"),
+        (node_b, "uuid-b", "rdma_en1"),
+        rdma_ctl={
+            node_a: NodeRdmaCtlStatus(enabled=True),
+            node_b: NodeRdmaCtlStatus(enabled=True),
+        },
+    )
+
+    event = NodeGatheredInfo(
+        node_id=node_a,
+        when=_now(),
+        info=MacThunderboltConnections(
+            conns=[
+                ThunderboltConnection(
+                    source_uuid="uuid-a", sink_uuid="uuid-b", via_hub=True
+                )
+            ]
+        ),
+    )
+
+    new_state = apply_node_gathered_info(event, state)
+
+    assert not _has_rdma_edge(new_state.topology, node_a, node_b)

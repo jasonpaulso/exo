@@ -7,6 +7,11 @@ from exo.utils.pydantic_ext import FrozenModel
 class ThunderboltConnection(FrozenModel):
     source_uuid: str
     sink_uuid: str
+    # True when the peer sits behind an intermediate hub/dock rather than on
+    # a direct cable. RDMA over Thunderbolt is point-to-point and can't route
+    # through hubs (Apple TN3205), so hub-mediated links must not become RDMA
+    # edges; jaccl queue pairs fail to reach RTR across them.
+    via_hub: bool = False
 
 
 class ThunderboltIdentifier(FrozenModel):
@@ -75,12 +80,26 @@ class ThunderboltConnectivityData(BaseModel, extra="ignore"):
         if self.domain_uuid_key is None or self.items is None:
             return
 
-        sink_key = _first_descendant_domain_uuid(self.items)
+        top_level_key = next(
+            (
+                item.domain_uuid_key
+                for item in self.items
+                if item.domain_uuid_key is not None
+            ),
+            None,
+        )
+        sink_key = (
+            top_level_key
+            if top_level_key is not None
+            else _first_descendant_domain_uuid(self.items)
+        )
         if sink_key is None:
             return None
 
         return ThunderboltConnection(
-            source_uuid=self.domain_uuid_key, sink_uuid=sink_key
+            source_uuid=self.domain_uuid_key,
+            sink_uuid=sink_key,
+            via_hub=top_level_key is None,
         )
 
 

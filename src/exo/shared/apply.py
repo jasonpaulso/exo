@@ -426,6 +426,10 @@ def apply_node_gathered_info(event: NodeGatheredInfo, state: State) -> State:
                     ),
                 )
                 for tb_conn in info.conns
+                # RDMA over Thunderbolt is point-to-point; a hub-mediated
+                # link can't bring a queue pair to RTR, and including it in
+                # the device matrix poisons jaccl init for the whole rank.
+                if not tb_conn.via_hub
                 if tb_conn.source_uuid in conn_map
                 if tb_conn.sink_uuid in conn_map
                 if source_is_rdma_enabled

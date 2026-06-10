@@ -57,6 +57,9 @@ def test_conn_resolves_peer_through_intermediate_hub() -> None:
     assert conn is not None
     assert conn.source_uuid == "DCA2B6F5-1C58-4589-8DA8-90B9326462D6"
     assert conn.sink_uuid == "F74D8F9B-DCDF-40D4-A428-3A3674BCB3F4"
+    # RDMA over Thunderbolt is point-to-point (Apple TN3205); hub-mediated
+    # links must be flagged so they never become RDMA edges.
+    assert conn.via_hub
 
 
 def test_conn_returns_first_peer_for_direct_link() -> None:
@@ -74,6 +77,7 @@ def test_conn_returns_first_peer_for_direct_link() -> None:
     conn = datum.conn()
     assert conn is not None
     assert conn.sink_uuid == "D02B9C20-7504-2222-2222-222222222222"
+    assert not conn.via_hub
 
 
 def test_conn_returns_none_when_no_peer_present() -> None:

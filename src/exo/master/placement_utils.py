@@ -320,14 +320,25 @@ def get_mlx_jaccl_devices_matrix(
 
             # Each directed edge carries the interface names of both
             # endpoints, so edges from either direction describe the same
-            # physical link and can be merged into one set of endpoint pairs.
-            links: set[tuple[str, str]] = set()
+            # physical link, normalised here to (iface on i, iface on j).
+            forward: set[tuple[str, str]] = set()
+            reverse: set[tuple[str, str]] = set()
             for conn in cycle_digraph.get_all_connections_between(node_i, node_j):
                 if isinstance(conn, RDMAConnection):
-                    links.add((conn.source_rdma_iface, conn.sink_rdma_iface))
+                    forward.add((conn.source_rdma_iface, conn.sink_rdma_iface))
             for conn in cycle_digraph.get_all_connections_between(node_j, node_i):
                 if isinstance(conn, RDMAConnection):
-                    links.add((conn.sink_rdma_iface, conn.source_rdma_iface))
+                    reverse.add((conn.sink_rdma_iface, conn.source_rdma_iface))
+
+            # A usable link is seen from both sides. Hub-mediated Thunderbolt
+            # links can be visible from only one side (the hub hides the peer
+            # from the other), and RDMA cannot route through a hub — a rail
+            # like that in the matrix makes jaccl init fail for the whole
+            # rank. Trust the intersection when both sides have reported;
+            # fall back to whichever side has data during bring-up.
+            links = (
+                (forward & reverse) if (forward and reverse) else (forward | reverse)
+            )
 
             if not links:
                 raise ValueError(

@@ -1119,3 +1119,72 @@ def test_mlx_jaccl_rejects_cuda_only_cycle(model_card: ModelCard):
             node_backends,
             node_rdma_ctl=node_rdma_ctl,
         )
+
+
+def test_jaccl_devices_matrix_drops_link_reported_from_only_one_side() -> None:
+    """A hub-mediated Thunderbolt link can be visible from one side only (the
+    hub hides the peer from the other side), and RDMA cannot route through a
+    hub. When both directions have reported, a link missing from one side's
+    report must not become a rail."""
+    node_a = NodeId()
+    node_b = NodeId()
+    topology = Topology()
+    topology.add_node(node_a)
+    topology.add_node(node_b)
+
+    # Two direct cables, reported by both sides.
+    for iface_a, iface_b in (("rdma_en3", "rdma_en6"), ("rdma_en4", "rdma_en1")):
+        topology.add_connection(
+            Connection(
+                source=node_a,
+                sink=node_b,
+                edge=RDMAConnection(source_rdma_iface=iface_a, sink_rdma_iface=iface_b),
+            )
+        )
+        topology.add_connection(
+            Connection(
+                source=node_b,
+                sink=node_a,
+                edge=RDMAConnection(source_rdma_iface=iface_b, sink_rdma_iface=iface_a),
+            )
+        )
+    # Hub leg: only node_a can see the peer (the hub hides node_a from
+    # node_b's system_profiler tree), so only one direction reports it.
+    topology.add_connection(
+        Connection(
+            source=node_a,
+            sink=node_b,
+            edge=RDMAConnection(
+                source_rdma_iface="rdma_en5", sink_rdma_iface="rdma_en2"
+            ),
+        )
+    )
+
+    matrix = get_mlx_jaccl_devices_matrix([node_a, node_b], topology)
+
+    assert matrix[0][1] == ["rdma_en3", "rdma_en4"]
+    assert matrix[1][0] == ["rdma_en6", "rdma_en1"]
+
+
+def test_jaccl_devices_matrix_keeps_one_sided_links_during_bring_up() -> None:
+    """If only one direction has reported at all (peer's gatherer hasn't run
+    yet), its links are still used rather than failing placement."""
+    node_a = NodeId()
+    node_b = NodeId()
+    topology = Topology()
+    topology.add_node(node_a)
+    topology.add_node(node_b)
+    topology.add_connection(
+        Connection(
+            source=node_a,
+            sink=node_b,
+            edge=RDMAConnection(
+                source_rdma_iface="rdma_en3", sink_rdma_iface="rdma_en6"
+            ),
+        )
+    )
+
+    matrix = get_mlx_jaccl_devices_matrix([node_a, node_b], topology)
+
+    assert matrix[0][1] == ["rdma_en3"]
+    assert matrix[1][0] == ["rdma_en6"]
