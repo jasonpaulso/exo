@@ -302,6 +302,7 @@
       ip: string;
       ifaceLabel: string;
       missingIface: boolean;
+      unconfirmedRdma: boolean;
     };
     type PairEntry = {
       a: string;
@@ -319,6 +320,18 @@
     };
     const pairMap = new Map<string, PairEntry>();
     const debugEdgeLabels: DebugEdgeLabelEntry[] = [];
+    // RDMA over Thunderbolt is point-to-point; a link reported from only one
+    // side (e.g. the peer sits behind a hub it can see but we can't) never
+    // carries RDMA and is excluded from placement. Collect each direction's
+    // RDMA reports so the one-sided ones can render dimmed.
+    const rdmaEdgeKeys = new Set<string>();
+    edges.forEach((edge) => {
+      if (edge.sourceRdmaIface && edge.sinkRdmaIface) {
+        rdmaEdgeKeys.add(
+          `${edge.source}|${edge.target}|${edge.sourceRdmaIface}|${edge.sinkRdmaIface}`,
+        );
+      }
+    });
     edges.forEach((edge) => {
       if (!edge.source || !edge.target || edge.source === edge.target) return;
       if (!positionById[edge.source] || !positionById[edge.target]) return;
@@ -340,11 +353,15 @@
       let ip: string;
       let ifaceLabel: string;
       let missingIface: boolean;
+      let unconfirmedRdma = false;
 
       if (edge.sourceRdmaIface || edge.sinkRdmaIface) {
         ip = "RDMA";
         ifaceLabel = `${edge.sourceRdmaIface || "?"} \u2192 ${edge.sinkRdmaIface || "?"}`;
         missingIface = false;
+        unconfirmedRdma = !rdmaEdgeKeys.has(
+          `${edge.target}|${edge.source}|${edge.sinkRdmaIface}|${edge.sourceRdmaIface}`,
+        );
       } else {
         ip = edge.sendBackIp || "?";
         const ifaceInfo = getInterfaceLabel(edge.source, ip);
@@ -358,6 +375,7 @@
         ip,
         ifaceLabel,
         missingIface,
+        unconfirmedRdma,
       });
       pairMap.set(key, entry);
     });
@@ -506,7 +524,9 @@
                 "fill",
                 conn.missingIface
                   ? "rgba(248,113,113,0.9)"
-                  : "rgba(255,255,255,0.85)",
+                  : conn.unconfirmedRdma
+                    ? "rgba(255,255,255,0.35)"
+                    : "rgba(255,255,255,0.85)",
               )
               .text(label);
             currentY += isTop ? lineHeight : -lineHeight;
