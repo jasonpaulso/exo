@@ -143,24 +143,15 @@ def mlx_distributed_init(
                 # between two ranks; the ring backend stripes traffic across
                 # every link. Prefer the ring whenever any pair of ranks has
                 # more than one physical link so the extra bandwidth is used.
-                #
-                # Pipeline parallelism stays on the mesh backend: the ring
-                # backend's point-to-point recv posts more multi-wire receives
-                # than the matching send produces for messages smaller than
-                # the per-wire pipeline window, deadlocking PP's small
-                # activation transfers (jaccl ring_impl.h recv prefill
-                # compares the relative chunk offset against the absolute
-                # wire limit). Tensor collectives are unaffected because
-                # jaccl's all_reduce falls back to one wire for messages
-                # up to 64 KiB.
+                # Requires jaccl with the ring recv prefill fix (the pinned
+                # mlx fork branch fix/ring-recv-prefill); unpatched jaccl
+                # deadlocks pipeline parallelism's small point-to-point
+                # transfers when a peer has more than one link.
                 max_links = max(
                     (len(cell) for row in jaccl_devices for cell in row),
                     default=0,
                 )
-                is_tensor_shard = isinstance(
-                    bound_instance.bound_shard, TensorShardMetadata
-                )
-                if max_links > 1 and is_tensor_shard:
+                if max_links > 1:
                     os.environ["MLX_JACCL_RING"] = "1"
                     logger.info(
                         f"rank {rank} MLX_JACCL_RING=1 "
